@@ -1,0 +1,21 @@
+nand erase rootfs0
+ubi part rootfs0
+ubi create 0
+nand erase rootfs1
+ubi part rootfs1
+ubi create 0
+nand erase linux0
+ubi part linux0
+ubi create 0 300000 s
+nand erase linux1
+ubi part linux1
+ubi create 0 300000 s
+tftp uImage.kernel
+blnprog linux
+blnprog linux
+tftp ubifs.cherry
+blnprog rootfs
+blnprog rootfs
+nand erase exfs
+ubi part exfs
+reset

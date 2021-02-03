@@ -1,0 +1,1532 @@
+﻿<?xml version="1.0"?>
+<!DOCTYPE CardProperty>
+
+<CardProperty>
+	<DESCRIPTION>
+		This is a SIP media gateway
+	</DESCRIPTION>
+
+	<INTERFACES>
+		<IfItem id="1" Name="FG-ACE-VC" Type="MG" PortNumber="1" />
+	</INTERFACES>
+
+	<SYSTEM>
+		<SystemDesc id="1" Name=""></SystemDesc>
+		<SystemDesc id="2" Name=""></SystemDesc>
+		<SystemDesc id="3" Name=""></SystemDesc>
+		<SystemDesc id="4" Name=""></SystemDesc>
+		<SystemDesc id="5" Name=""></SystemDesc>
+		<SystemDesc id="6" Name=""></SystemDesc>
+	</SYSTEM>
+
+	<PROVISION>
+		<!-- provision item max id now is 34. -->
+		<ProvisionDesc id="1" Name="Net Config" Type="MG" PortNumber="1"
+ Help="The &#34;TFTP Server&#34; and &#34;Boot File&#34; can be cleared to force upgrade from DHCP.">
+			<ProvisionItem id="1" Name="DHCP Enable" Type="ABLE" DefValue="Enabled"/>
+			<ProvisionItem id="2" Name="DHCP Retry Delay" Type="U16" DefValue="60" Unit="Sec" Notedit="PROVISION,1,1,0"/>
+			<ProvisionItem id="3" Name="DHCP Retry Times" Type="U16" DefValue="0" Notedit="PROVISION,1,1,0"/>
+			<ProvisionItem id="4" Name="DHCP Vendor Class ID (60)" Type="STRING" MinValue="0" MaxValue="256" DefValue="" Notedit="PROVISION,1,1,0"/>
+			<ProvisionItem id="5" Name="DHCP Agent Circuit ID (82)" Type="STRING" MinValue="0" MaxValue="256" DefValue="" Notedit="PROVISION,1,1,0"/>
+			<ProvisionItem id="6" Name="Signal IP" Type="IPV4" DefValue="192.168.216.1" Notedit="PROVISION,1,1,1"/>
+			<ProvisionItem id="7" Name="Signal Submask" Type="IPV4MASK" DefValue="255.255.255.0" Notedit="PROVISION,1,1,1"/>
+			<ProvisionItem id="8" Name="Signal Gateway" Type="IPV4" DefValue="0.0.0.0" Notedit="PROVISION,1,1,1"/>
+			<ProvisionItem id="9" Name="Signal VLAN ID" Type="U16" MinValue="0" MaxValue="4094" DefValue="0"/>
+			<ProvisionItem id="10" Name="Signal VLAN Priority" Type="U8" MinValue="0" MaxValue="7" DefValue="0"/>
+			<ProvisionItem id="11" Name="Signal TOS" Type="U8" MinValue="0" MaxValue="255" DefValue="0"/>
+			<ProvisionItem id="30" Name="Signal IP Enable HTTP Access" Type="ABLE" DefValue="Enabled"/>
+			<ProvisionItem id="31" Name="Signal IP HTTP Server Port" Type="U16" MinValue="0" MaxValue="19999" DefValue="80"/>
+			<ProvisionItem id="13" Name="DNS1 IP" Type="IPV4" DefValue="0.0.0.0" Notedit="PROVISION,1,1,1"/>
+			<ProvisionItem id="14" Name="DNS2 IP" Type="IPV4" DefValue="0.0.0.0" Notedit="PROVISION,1,1,1"/>
+			<ProvisionItem id="15" Name="Media IP" Type="IPV4" DefValue="0.0.0.0"/>
+			<ProvisionItem id="16" Name="Media Submask" Type="IPV4MASK" DefValue="0.0.0.0"/>
+			<ProvisionItem id="17" Name="Media Gateway" Type="IPV4" DefValue="0.0.0.0"/>
+			<ProvisionItem id="18" Name="Media VLAN ID" Type="U16" MinValue="0" MaxValue="4094" DefValue="0"/>
+			<ProvisionItem id="19" Name="Media VLAN Priority" Type="U8" MinValue="0" MaxValue="7" DefValue="0"/>
+			<ProvisionItem id="20" Name="Media TOS" Type="U8" MinValue="0" MaxValue="255" DefValue="0"/>
+			<ProvisionItem id="21" Name="Media Port Start NO." Type="U16" MinValue="10000" MaxValue="60000" DefValue="20000"/>
+			<ProvisionItem id="22" Name="HTTP Server IP" Type="IPV4" DefValue="0.0.0.0"/>
+			<ProvisionItem id="23" Name="HTTP Server Port" Type="U16" MinValue="0" MaxValue="19999" DefValue="80"/>
+			<ProvisionItem id="24" Name="HTTP Server Submask" Type="IPV4MASK" DefValue="0.0.0.0"/>
+			<ProvisionItem id="25" Name="HTTP Server Gateway" Type="IPV4" DefValue="0.0.0.0"/>
+			<ProvisionItem id="26" Name="HTTP Server VLAN ID" Type="U16" MinValue="0" MaxValue="4094" DefValue="0"/>
+			<ProvisionItem id="27" Name="HTTP Server VLAN Priority" Type="U8" MinValue="0" MaxValue="7" DefValue="0"/>
+			<ProvisionItem id="28" Name="HTTP Server TOS" Type="U8" MinValue="0" MaxValue="255" DefValue="0"/>
+			<ProvisionItem id="29" Name="HTTP Session Timeout" Type="U16" MinValue="0" MaxValue="1440" DefValue="10" Unit="Min"/>
+			<ProvisionItem id="32" Name="HTTP Session Lockout" Type="U16" MinValue="0" MaxValue="1440" DefValue="10" Unit="Min"/>
+			<ProvisionItem id="33" Name="TFTP Server" Type="STRING" MinValue="0" MaxValue="255" DefValue=""/>
+			<ProvisionItem id="34" Name="Boot File" Type="STRING" MinValue="0" MaxValue="255" DefValue=""/>
+		</ProvisionDesc>
+		
+		<!-- provision item max id now is 24. -->
+		<ProvisionDesc id="3" Name="SIP Global Config" Type="MG" PortNumber="1"
+ Help="If &#34;Escape Pound Sign&#34; is enabled, the dialed pound sign &#39;#&#39; will be replaced with &#34;%23&#34;.">
+<!--			<ProvisionItem id="7" Name="Server from DHCP" Type="YN" DefValue="No" Edithidden="Yes"/> -->
+			<ProvisionItem id="13" Name="User Agent Domain" Type="STRING" MinValue="0" MaxValue="256" DefValue=""/>
+			<ProvisionItem id="8"  Name="User Agent Port" Type="U16" MinValue="1" MaxValue="65535" DefValue="5060"/>
+			<ProvisionItem id="19" Name="Registrar Domain 1" Type="STRING" MinValue="0" MaxValue="256" DefValue=""/>
+			<ProvisionItem id="1"  Name="Registrar Server 1" Type="STRING" MinValue="0" MaxValue="256" DefValue=""/>
+			<ProvisionItem id="2"  Name="Registrar Server 1 Port" Type="U16" MinValue="1" MaxValue="65535" DefValue="5060"/>
+			<ProvisionItem id="20" Name="Registrar Domain 2" Type="STRING" MinValue="0" MaxValue="256" DefValue=""/>
+			<ProvisionItem id="3"  Name="Registrar Server 2" Type="STRING" MinValue="0" MaxValue="256" DefValue=""/>
+			<ProvisionItem id="4"  Name="Registrar Server 2 Port" Type="U16" MinValue="1" MaxValue="65535" DefValue="5060"/>
+			<ProvisionItem id="14" Name="Outbound Proxy" Type="STRING" MinValue="0" MaxValue="256" DefValue=""/>
+			<ProvisionItem id="15" Name="Outbound Proxy Port" Type="U16" MinValue="1" MaxValue="65535" DefValue="5060"/>
+			<ProvisionItem id="17" Name="Register Expires" Type="U16" MinValue="60" MaxValue="65535" DefValue="3600" Unit="Sec"/>
+			<ProvisionItem id="18" Name="Registration Period" Type="U16" MinValue="60" MaxValue="65535" DefValue="3600" Unit="Sec"/>
+			<ProvisionItem id="16" Name="SIP Signal Packet Timeout" Type="U8" MinValue="10" MaxValue="60" DefValue="30" Unit="Sec"/>
+			<ProvisionItem id="5"  Name="SIP PRACK" Type="ABLE" DefValue="Disabled" />
+			<ProvisionItem id="6"  Name="Escape Pound Sign" Type="ABLE" DefValue="Enabled"/>
+			<ProvisionItem id="9"  Name="Enable SIP Options" Type="ABLE" DefValue="Disabled" />
+			<ProvisionItem id="10" Name="SIP Options Timer" Type="U16" MinValue="5" MaxValue="3600" DefValue="60" Unit="Sec"/>
+			<ProvisionItem id="21" Name="SIP SUBSCRIBE" Type="ABLE" DefValue="Disabled" />
+			<ProvisionItem id="22" Name="SUBSCRIBE Event" Type="STRING" MinValue="1" MaxValue="63" DefValue="ua-profile" Notedit="PROVISION,3,21,0"/>
+			<ProvisionItem id="23" Name="SUBSCRIBE Accept" Type="STRING" MinValue="1" MaxValue="255" DefValue="application/sdp,application/simservs+xml" Notedit="PROVISION,3,21,0"/>
+			<ProvisionItem id="24" Name="SUBSCRIBE Expires" Type="U16" MinValue="60" MaxValue="65535" DefValue="3600" Unit="Sec" Notedit="PROVISION,3,21,0"/>
+<!--
+			<ProvisionItem id="11" Name="Enable Packet Threshold" Type="ABLE" DefValue="Disabled" />
+			<ProvisionItem id="12" Name="Packet Threshold Number" Type="U8" MinValue="3" MaxValue="60" DefValue="3"/>
+-->
+		</ProvisionDesc>
+
+		<!-- provision item max id now is 23. -->
+		<ProvisionDesc id="2" Name="Telephony Config" Type="MG" PortNumber="1">
+			<ProvisionItem id="10" Name="Country" Type="LIST" DefValue="3">
+				<Option value="0">USA</Option>
+				<Option value="1">INDIA</Option>
+				<Option value="2">INDONESIA</Option>
+				<Option value="3">TAIWAN</Option>
+				<Option value="4">PAKISTAN</Option>
+				<Option value="5">IRAN</Option>
+				<Option value="6">THAILAND</Option>
+				<Option value="7">RUSSIA</Option>
+				<Option value="8">CHINA</Option>
+			</ProvisionItem>
+			<ProvisionItem id="11" Name="Country Custom Number" Type="U16" MinValue="0" MaxValue="65535" DefValue="0"/>
+			<ProvisionItem id="1" Name="First digit Timeout" Type="U8" MinValue="10" MaxValue="60" DefValue="10" Unit="Sec"/>
+			<ProvisionItem id="2" Name="Interdigit Timeout" Type="U8" MinValue="2" MaxValue="15" DefValue="3" Unit="Sec"/>
+			<ProvisionItem id="4" Name="Minimal Flash Time" Type="U16" MinValue="80" MaxValue="250" DefValue="250" Unit="mSec"/>
+			<ProvisionItem id="3" Name="Maximal Flash Time" Type="U16" MinValue="450" MaxValue="1200" DefValue="450" Unit="mSec"/>
+			<ProvisionItem id="19" Name="Ring Timeout" Type="LIST" DefValue="3" Unit="Sec">
+				<Option value="0">Disable</Option>
+				<Option value="1">10</Option>
+				<Option value="2">20</Option>
+				<Option value="3">30</Option>
+				<Option value="4">40</Option>
+				<Option value="5">50</Option>
+				<Option value="6">60</Option>
+			</ProvisionItem>
+<!--			<ProvisionItem id="5" Name="Pound Sign Key" Type="ABLE" DefValue="Enabled" /> -->
+			<ProvisionItem id="16" Name="Fax Mode" Type="LIST" DefValue="3">
+				<Option value="1">Enable T.38</Option>
+				<Option value="2">Enable T.30</Option>
+				<Option value="3">T.38 Fallback to T.30</Option>
+			</ProvisionItem>
+			<ProvisionItem id="17" Name="T.38 ECM" Type="ABLE" DefValue="Disabled"/>
+			<ProvisionItem id="18" Name="T.38 UDPRedundancy" Type="LIST" DefValue="3">
+				<Option value="0">0</Option>
+				<Option value="1">1</Option>
+				<Option value="2">2</Option>
+				<Option value="3">3</Option>
+			</ProvisionItem>
+<!--
+			<ProvisionItem id="6" Name="Voice Activity Detection" Type="ABLE" DefValue="Enabled"/>
+			<ProvisionItem id="22" Name="Comfort Noise" Type="ABLE" DefValue="Enabled"/>
+			<ProvisionItem id="23" Name="Voice Band Data" Type="ABLE" DefValue="Disabled"/>
+			<ProvisionItem id="7" Name="Echo Cancellation Tail" Type="LIST" DefValue="48">
+				<Option value="0">Disable</Option>
+				<Option value="8">8 ms.</Option>
+				<Option value="16">16 ms.</Option>
+				<Option value="32">32 ms.</Option>
+				<Option value="48">48 ms.</Option>
+				<Option value="64">64 ms.</Option>
+				<Option value="128">128 ms.</Option>
+			</ProvisionItem>
+			<ProvisionItem id="8" Name="Caller ID Type" Type="LIST" DefValue="1">
+				<Option value="1">Post-Ring FSK</Option>
+				<Option value="2">Post-Ring DTMF</Option>
+				<Option value="3">Pre-Ring FSK</Option>
+				<Option value="4">Pre-Ring DTMF</Option>
+			</ProvisionItem>
+-->
+			<ProvisionItem id="9" Name="DTMF Relay" Type="LIST" DefValue="2">
+				<Option value="1">In-Band</Option>
+				<Option value="2">Out-of-Band</Option>
+				<Option value="3">SIP Info</Option>
+			</ProvisionItem>
+			<ProvisionItem id="12" Name="DTMF Relay Payload" Type="U8" MinValue="96" MaxValue="127" DefValue="101" Notedit="PROVISION,2,9,1,3"/>
+<!--			<ProvisionItem id="21" Name="G.726 Payload" Type="U8" MinValue="96" MaxValue="127" DefValue="96"/> --> <!-- the first of 4 types -->
+<!--
+			<ProvisionItem id="13" Name="Ring On Cadence" Type="LIST" DefValue="1" Unit="Sec">
+				<Option value="1">1</Option>
+				<Option value="2">2</Option>
+				<Option value="3">3</Option>
+				<Option value="4">4</Option>
+				<Option value="5">5</Option>
+				<Option value="6">6</Option>
+			</ProvisionItem>
+			<ProvisionItem id="14" Name="Ring Off Cadence" Type="LIST" DefValue="2" Unit="Sec">
+				<Option value="1">1</Option>
+				<Option value="2">2</Option>
+				<Option value="3">3</Option>
+				<Option value="4">4</Option>
+				<Option value="5">5</Option>
+				<Option value="6">6</Option>
+			</ProvisionItem>
+			<ProvisionItem id="15" Name="Ring Voltage" Type="LIST" DefValue="85" Unit="Volt">
+				<Option value="60">60</Option>
+				<Option value="65">65</Option>
+				<Option value="80">80</Option>
+				<Option value="85">85</Option>
+				<Option value="95">95</Option>
+			</ProvisionItem>
+-->
+		</ProvisionDesc>
+
+		<ProvisionDesc id="6" Name="Local Call Feature" Type="MG" PortNumber="1"
+ Help="Dial the feature prefix followed by 'code*1#' to enable feature, 'code*0#' to disable feature,
+ 'code*number#' to configure number, and 'code*#' to return to the default value.&lt;br&gt;
+ The code 0~19 are reserved for speed dialing. Setting the code to 0 disables configuration of the local feature by phone.&lt;br&gt;
+ Codes can be piggybacked without the prefix. E.g. dial the feature prefix followed by 'code1*1#code2*1#code3*0#'
+ enableds feature1 and feature2 while disables feature3.&lt;br&gt; Clearing the feature prefix disables configuration of all local features by phone.">
+
+			<ProvisionItem id="17" Name="Local Features" Type="ABLE" DefValue="Disabled"/>
+			<ProvisionItem id="1" Name="Feature Prefix" Type="STRING" MinValue="0" MaxValue="15" DefValue="*#"/>
+
+			<ProvisionItem id="2" Name="Do Not Disturb" Type="U16" MinValue="20" MaxValue="65535" DefValue="50"/>
+			<ProvisionItem id="3" Name="Call Waiting" Type="U16" MinValue="20" MaxValue="65535" DefValue="51"/>
+			<ProvisionItem id="4" Name="Call Hold" Type="U16" MinValue="20" MaxValue="65535" DefValue="52"/>
+			<ProvisionItem id="5" Name="Call Hold Tone" Type="U16" MinValue="20" MaxValue="65535" DefValue="53"/>
+			<ProvisionItem id="6" Name="3 Way Conference" Type="U16" MinValue="20" MaxValue="65535" DefValue="54"/>
+			<ProvisionItem id="7" Name="Call Forward Unconditional" Type="U16" MinValue="20" MaxValue="65535" DefValue="55"/>
+			<ProvisionItem id="8" Name="Call Forward Unconditional Number" Type="U16" MinValue="20" MaxValue="65535" DefValue="56"/>
+			<ProvisionItem id="9" Name="Call Forward On Busy" Type="U16" MinValue="20" MaxValue="65535" DefValue="57"/>
+			<ProvisionItem id="10" Name="Call Forward On Busy Number" Type="U16" MinValue="20" MaxValue="65535" DefValue="58"/>
+			<ProvisionItem id="11" Name="Call Forward No Answer" Type="U16" MinValue="20" MaxValue="65535" DefValue="59"/>
+			<ProvisionItem id="12" Name="Call Forward No Answer Number" Type="U16" MinValue="20" MaxValue="65535" DefValue="60"/>
+			<ProvisionItem id="13" Name="Call Transfer" Type="U16" MinValue="20" MaxValue="65535" DefValue="61"/>
+			<ProvisionItem id="14" Name="Hot Line" Type="U16" MinValue="20" MaxValue="65535" DefValue="62"/>
+			<ProvisionItem id="15" Name="Hot Line Number" Type="U16" MinValue="20" MaxValue="65535" DefValue="63"/>
+			<ProvisionItem id="16" Name="Hot Line Timeout" Type="U16" MinValue="20" MaxValue="65535" DefValue="64" Unit="Sec"/>
+		</ProvisionDesc>
+
+		<ProvisionDesc id="4" Name="Syslog Config" Type="MG" PortNumber="1">
+			<ProvisionItem id="1" Name="Syslog Enable" Type="ABLE" DefValue="Disabled"/>
+			<ProvisionItem id="2" Name="Syslog Server IP" Type="IPV4" DefValue="0.0.0.0"/>
+			<ProvisionItem id="3" Name="Syslog Server Port" Type="U16" DefValue="514"/>
+			<ProvisionItem id="4" Name="Syslog Severity" Type="LIST" DefValue="0">
+				<Option value="0">Emergency</Option>
+				<Option value="1">Alert</Option>
+				<Option value="2">Critical</Option>
+				<Option value="3">Error</Option>
+				<Option value="4">Warning</Option>
+				<Option value="5">Notice</Option>
+				<Option value="6">Informational</Option>
+				<Option value="7">Debug</Option>
+			</ProvisionItem>
+		</ProvisionDesc>
+
+		<ProvisionDesc id="5" Name="NTP Config" Type="MG" PortNumber="1" Width="956">
+			<ProvisionItem id="1" Name="Timezone" Type="LIST" DefValue="302">
+<Option value="489">-11:00 US minor outlying islands: Midway Islands</Option>
+<Option value="453">-11:00 Samoa (American)</Option>
+<Option value="446">-11:00 Niue</Option>
+<Option value="488">-10:00 US minor outlying islands: Johnston Atoll</Option>
+<Option value="199">-10:00 United States: Hawaii</Option>
+<Option value="198">-10:00 United States: Aleutian Islands</Option>
+<Option value="430">-10:00 French Polynesia: Society Islands</Option>
+<Option value="426">-10:00 Cook Islands</Option>
+<Option value="431">-09:30 French Polynesia: Marquesas Islands</Option>
+<Option value="197">-09:00 United States: Alaska Time - west Alaska</Option>
+<Option value="195">-09:00 United States: Alaska Time - southeast Alaska panhandle</Option>
+<Option value="196">-09:00 United States: Alaska Time - Alaska panhandle neck</Option>
+<Option value="194">-09:00 United States: Alaska Time - Alaska panhandle</Option>
+<Option value="193">-09:00 United States: Alaska Time</Option>
+<Option value="432">-09:00 French Polynesia: Gambier Islands</Option>
+<Option value="191">-08:00 United States: Pacific Time</Option>
+<Option value="192">-08:00 United States: Pacific Standard Time - Annette Island, Alaska</Option>
+<Option value="452">-08:00 Pitcairn</Option>
+<Option value="152">-08:00 Mexico: US Pacific Time - Baja California near US border</Option>
+<Option value="153">-08:00 Mexico: Mexican Pacific Time - Baja California away from US border</Option>
+<Option value="114">-08:00 Canada: Pacific Time - west British Columbia</Option>
+<Option value="115">-08:00 Canada: Pacific Time - south Yukon</Option>
+<Option value="116">-08:00 Canada: Pacific Time - north Yukon</Option>
+<Option value="189">-07:00 United States: Mountain Time - south Idaho &amp; east Oregon</Option>
+<Option value="188">-07:00 United States: Mountain Time</Option>
+<Option value="190">-07:00 United States: Mountain Standard Time - Arizona (except Navajo)</Option>
+<Option value="150">-07:00 Mexico: US Mountain Time - Chihuahua near US border</Option>
+<Option value="148">-07:00 Mexico: Mountain Time - S Baja, Nayarit, Sinaloa</Option>
+<Option value="151">-07:00 Mexico: Mountain Standard Time - Sonora</Option>
+<Option value="149">-07:00 Mexico: Mexican Mountain Time - Chihuahua away from US border</Option>
+<Option value="109">-07:00 Canada: Mountain Time - west Nunavut</Option>
+<Option value="111">-07:00 Canada: Mountain Time - west Northwest Territories</Option>
+<Option value="110">-07:00 Canada: Mountain Time - central Northwest Territories</Option>
+<Option value="108">-07:00 Canada: Mountain Time - Alberta, east British Columbia &amp; west Saskatchewan</Option>
+<Option value="113">-07:00 Canada: Mountain Standard Time - Dawson Creek &amp; Fort Saint John, British Columbia</Option>
+<Option value="112">-07:00 Canada: Mountain Standard Time - Creston, British Columbia</Option>
+<Option value="185">-06:00 United States: Central Time - North Dakota - Oliver County</Option>
+<Option value="186">-06:00 United States: Central Time - North Dakota - Morton County (except Mandan area)</Option>
+<Option value="187">-06:00 United States: Central Time - North Dakota - Mercer County</Option>
+<Option value="184">-06:00 United States: Central Time - Michigan - Dickinson, Gogebic, Iron &amp; Menominee Counties</Option>
+<Option value="183">-06:00 United States: Central Time - Indiana - Starke County</Option>
+<Option value="182">-06:00 United States: Central Time - Indiana - Perry County</Option>
+<Option value="181">-06:00 United States: Central Time</Option>
+<Option value="156">-06:00 Nicaragua</Option>
+<Option value="147">-06:00 Mexico: US Central Time - Coahuila, Durango, Nuevo Leon, Tamaulipas near US border</Option>
+<Option value="146">-06:00 Mexico: Mexican Central Time - Coahuila, Durango, Nuevo Leon, Tamaulipas away from US border</Option>
+<Option value="154">-06:00 Mexico: Mexican Central Time - Bahia de Banderas</Option>
+<Option value="144">-06:00 Mexico: Central Time - Quintana Roo</Option>
+<Option value="143">-06:00 Mexico: Central Time - most locations</Option>
+<Option value="145">-06:00 Mexico: Central Time - Campeche, Yucatan</Option>
+<Option value="140">-06:00 Honduras</Option>
+<Option value="137">-06:00 Guatemala</Option>
+<Option value="129">-06:00 El Salvador</Option>
+<Option value="128">-06:00 Ecuador: Galapagos Islands</Option>
+<Option value="122">-06:00 Costa Rica</Option>
+<Option value="120">-06:00 Chile: Easter Island</Option>
+<Option value="101">-06:00 Canada: Central Time - Resolute, Nunavut</Option>
+<Option value="105">-06:00 Canada: Central Time - Rainy River &amp; Fort Frances, Ontario</Option>
+<Option value="104">-06:00 Canada: Central Time - Manitoba &amp; west Ontario</Option>
+<Option value="103">-06:00 Canada: Central Time - central Nunavut</Option>
+<Option value="106">-06:00 Canada: Central Standard Time - Saskatchewan - most locations</Option>
+<Option value="107">-06:00 Canada: Central Standard Time - Saskatchewan - midwest</Option>
+<Option value="72">-06:00 Belize</Option>
+<Option value="172">-05:00 United States: Eastern Time - Michigan - most locations</Option>
+<Option value="174">-05:00 United States: Eastern Time - Kentucky - Wayne County</Option>
+<Option value="173">-05:00 United States: Eastern Time - Kentucky - Louisville area</Option>
+<Option value="180">-05:00 United States: Eastern Time - Indiana - Switzerland County</Option>
+<Option value="177">-05:00 United States: Eastern Time - Indiana - Pulaski County</Option>
+<Option value="179">-05:00 United States: Eastern Time - Indiana - Pike County</Option>
+<Option value="175">-05:00 United States: Eastern Time - Indiana - most locations</Option>
+<Option value="176">-05:00 United States: Eastern Time - Indiana - Daviess, Dubois, Knox &amp; Martin Counties</Option>
+<Option value="178">-05:00 United States: Eastern Time - Indiana - Crawford County</Option>
+<Option value="171">-05:00 United States: Eastern Time</Option>
+<Option value="170">-05:00 Turks &amp; Caicos Is</Option>
+<Option value="159">-05:00 Peru</Option>
+<Option value="157">-05:00 Panama</Option>
+<Option value="141">-05:00 Jamaica</Option>
+<Option value="139">-05:00 Haiti</Option>
+<Option value="127">-05:00 Ecuador: mainland</Option>
+<Option value="123">-05:00 Cuba</Option>
+<Option value="121">-05:00 Colombia</Option>
+<Option value="118">-05:00 Cayman Islands</Option>
+<Option value="98">-05:00 Canada: Eastern Time - Thunder Bay, Ontario</Option>
+<Option value="100">-05:00 Canada: Eastern Time - Pangnirtung, Nunavut</Option>
+<Option value="97">-05:00 Canada: Eastern Time - Ontario &amp; Quebec - places that did not observe DST 1967-1973</Option>
+<Option value="96">-05:00 Canada: Eastern Time - Ontario &amp; Quebec - most locations</Option>
+<Option value="99">-05:00 Canada: Eastern Time - east Nunavut - most locations</Option>
+<Option value="102">-05:00 Canada: Eastern Standard Time - Atikokan, Ontario and Southampton I, Nunavut</Option>
+<Option value="88">-05:00 Brazil: W Amazonas</Option>
+<Option value="89">-05:00 Brazil: Acre</Option>
+<Option value="70">-05:00 Bahamas</Option>
+<Option value="201">-04:30 Venezuela</Option>
+<Option value="203">-04:00 Virgin Islands (US)</Option>
+<Option value="202">-04:00 Virgin Islands (UK)</Option>
+<Option value="169">-04:00 Trinidad &amp; Tobago</Option>
+<Option value="167">-04:00 St Vincent</Option>
+<Option value="165">-04:00 St Martin (French part)</Option>
+<Option value="164">-04:00 St Maarten (Dutch part)</Option>
+<Option value="163">-04:00 St Lucia</Option>
+<Option value="162">-04:00 St Kitts &amp; Nevis</Option>
+<Option value="161">-04:00 St Barthelemy</Option>
+<Option value="160">-04:00 Puerto Rico</Option>
+<Option value="158">-04:00 Paraguay</Option>
+<Option value="155">-04:00 Montserrat</Option>
+<Option value="142">-04:00 Martinique</Option>
+<Option value="138">-04:00 Guyana</Option>
+<Option value="136">-04:00 Guadeloupe</Option>
+<Option value="135">-04:00 Grenada</Option>
+<Option value="134">-04:00 Greenland: Thule / Pituffik</Option>
+<Option value="126">-04:00 Dominican Republic</Option>
+<Option value="125">-04:00 Dominica</Option>
+<Option value="124">-04:00 Curacao</Option>
+<Option value="119">-04:00 Chile: most locations</Option>
+<Option value="117">-04:00 Caribbean Netherlands</Option>
+<Option value="92">-04:00 Canada: Atlantic Time - Nova Scotia - places that did not observe DST 1966-1971</Option>
+<Option value="91">-04:00 Canada: Atlantic Time - Nova Scotia (most places), PEI</Option>
+<Option value="93">-04:00 Canada: Atlantic Time - New Brunswick</Option>
+<Option value="94">-04:00 Canada: Atlantic Time - Labrador - most locations</Option>
+<Option value="95">-04:00 Canada: Atlantic Standard Time - Quebec - Lower North Shore</Option>
+<Option value="86">-04:00 Brazil: Roraima</Option>
+<Option value="85">-04:00 Brazil: Rondonia</Option>
+<Option value="82">-04:00 Brazil: Mato Grosso do Sul</Option>
+<Option value="83">-04:00 Brazil: Mato Grosso</Option>
+<Option value="87">-04:00 Brazil: E Amazonas</Option>
+<Option value="73">-04:00 Bolivia</Option>
+<Option value="311">-04:00 Bermuda</Option>
+<Option value="71">-04:00 Barbados</Option>
+<Option value="69">-04:00 Aruba</Option>
+<Option value="56">-04:00 Antigua &amp; Barbuda</Option>
+<Option value="206">-04:00 Antarctica: Palmer Station, Anvers Island</Option>
+<Option value="55">-04:00 Anguilla</Option>
+<Option value="90">-03:30 Canada: Newfoundland Time, including SE Labrador</Option>
+<Option value="200">-03:00 Uruguay</Option>
+<Option value="168">-03:00 Suriname</Option>
+<Option value="166">-03:00 St Pierre &amp; Miquelon</Option>
+<Option value="131">-03:00 Greenland: most locations</Option>
+<Option value="130">-03:00 French Guiana</Option>
+<Option value="313">-03:00 Falkland Islands</Option>
+<Option value="84">-03:00 Brazil: W Para</Option>
+<Option value="78">-03:00 Brazil: Tocantins</Option>
+<Option value="81">-03:00 Brazil: S &amp; SE Brazil (GO, DF, MG, ES, RJ, SP, PR, SC, RS)</Option>
+<Option value="77">-03:00 Brazil: Pernambuco</Option>
+<Option value="76">-03:00 Brazil: NE Brazil (MA, PI, CE, RN, PB)</Option>
+<Option value="80">-03:00 Brazil: Bahia</Option>
+<Option value="75">-03:00 Brazil: Amapa, E Para</Option>
+<Option value="79">-03:00 Brazil: Alagoas, Sergipe</Option>
+<Option value="61">-03:00 Argentina: Tucuman (TM)</Option>
+<Option value="68">-03:00 Argentina: Tierra del Fuego (TF)</Option>
+<Option value="67">-03:00 Argentina: Santa Cruz (SC)</Option>
+<Option value="66">-03:00 Argentina: San Luis (SL)</Option>
+<Option value="64">-03:00 Argentina: San Juan (SJ)</Option>
+<Option value="59">-03:00 Argentina: (SA, LP, NQ, RN)</Option>
+<Option value="58">-03:00 Argentina: most locations (CB, CC, CN, ER, FM, MN, SE, SF)</Option>
+<Option value="65">-03:00 Argentina: Mendoza (MZ)</Option>
+<Option value="63">-03:00 Argentina: La Rioja (LR)</Option>
+<Option value="60">-03:00 Argentina: Jujuy (JY)</Option>
+<Option value="62">-03:00 Argentina: Catamarca (CT), Chubut (CH)</Option>
+<Option value="57">-03:00 Argentina: Buenos Aires (BA, CF)</Option>
+<Option value="205">-03:00 Antarctica: Rothera Station, Adelaide Island</Option>
+<Option value="319">-02:00 South Georgia &amp; the South Sandwich Islands</Option>
+<Option value="74">-02:00 Brazil: Atlantic islands</Option>
+<Option value="318">-01:00 Portugal: Azores</Option>
+<Option value="133">-01:00 Greenland: Scoresbysund / Ittoqqortoormiit</Option>
+<Option value="312">-01:00 Cape Verde</Option>
+<Option value="213">+00:00 Antarctica: Troll Station, Queen Maud Land</Option>
+<Option value="344">+00:00 Britain (UK)</Option>
+<Option value="5">+00:00 Burkina Faso</Option>
+<Option value="13">+00:00 Cote d'Ivoire</Option>
+<Option value="314">+00:00 Faroe Islands</Option>
+<Option value="20">+00:00 Gambia</Option>
+<Option value="21">+00:00 Ghana</Option>
+<Option value="132">+00:00 Greenland: east coast, north of Scoresbysund</Option>
+<Option value="356">+00:00 Guernsey</Option>
+<Option value="23">+00:00 Guinea-Bissau</Option>
+<Option value="22">+00:00 Guinea</Option>
+<Option value="315">+00:00 Iceland</Option>
+<Option value="358">+00:00 Ireland</Option>
+<Option value="359">+00:00 Isle of Man</Option>
+<Option value="361">+00:00 Jersey</Option>
+<Option value="26">+00:00 Liberia</Option>
+<Option value="29">+00:00 Mali</Option>
+<Option value="30">+00:00 Mauritania</Option>
+<Option value="31">+00:00 Morocco</Option>
+<Option value="317">+00:00 Portugal: Madeira Islands</Option>
+<Option value="316">+00:00 Portugal: mainland</Option>
+<Option value="37">+00:00 Sao Tome &amp; Principe</Option>
+<Option value="38">+00:00 Senegal</Option>
+<Option value="39">+00:00 Sierra Leone</Option>
+<Option value="45">+00:00 Spain: Canary Islands</Option>
+<Option value="323">+00:00 St Helena</Option>
+<Option value="49">+00:00 Togo</Option>
+<Option value="52">+00:00 Western Sahara</Option>
+<Option value="338">+01:00 Albania</Option>
+<Option value="1">+01:00 Algeria</Option>
+<Option value="339">+01:00 Andorra</Option>
+<Option value="2">+01:00 Angola</Option>
+<Option value="340">+01:00 Austria</Option>
+<Option value="342">+01:00 Belgium</Option>
+<Option value="3">+01:00 Benin</Option>
+<Option value="343">+01:00 Bosnia &amp; Herzegovina</Option>
+<Option value="7">+01:00 Cameroon</Option>
+<Option value="8">+01:00 Central African Rep.</Option>
+<Option value="9">+01:00 Chad</Option>
+<Option value="10">+01:00 Congo (Dem. Rep.): west Dem. Rep. of Congo</Option>
+<Option value="12">+01:00 Congo (Rep.)</Option>
+<Option value="346">+01:00 Croatia</Option>
+<Option value="347">+01:00 Czech Republic</Option>
+<Option value="348">+01:00 Denmark</Option>
+<Option value="16">+01:00 Equatorial Guinea</Option>
+<Option value="351">+01:00 France</Option>
+<Option value="19">+01:00 Gabon</Option>
+<Option value="353">+01:00 Germany: Busingen</Option>
+<Option value="352">+01:00 Germany: most locations</Option>
+<Option value="354">+01:00 Gibraltar</Option>
+<Option value="357">+01:00 Hungary</Option>
+<Option value="360">+01:00 Italy</Option>
+<Option value="363">+01:00 Liechtenstein</Option>
+<Option value="365">+01:00 Luxembourg</Option>
+<Option value="366">+01:00 Macedonia</Option>
+<Option value="367">+01:00 Malta</Option>
+<Option value="369">+01:00 Monaco</Option>
+<Option value="370">+01:00 Montenegro</Option>
+<Option value="33">+01:00 Namibia</Option>
+<Option value="371">+01:00 Netherlands</Option>
+<Option value="35">+01:00 Nigeria</Option>
+<Option value="34">+01:00 Niger</Option>
+<Option value="372">+01:00 Norway</Option>
+<Option value="373">+01:00 Poland</Option>
+<Option value="399">+01:00 San Marino</Option>
+<Option value="400">+01:00 Serbia</Option>
+<Option value="401">+01:00 Slovakia</Option>
+<Option value="402">+01:00 Slovenia</Option>
+<Option value="44">+01:00 Spain: Ceuta &amp; Melilla</Option>
+<Option value="43">+01:00 Spain: mainland</Option>
+<Option value="227">+01:00 Svalbard &amp; Jan Mayen</Option>
+<Option value="406">+01:00 Sweden</Option>
+<Option value="407">+01:00 Switzerland</Option>
+<Option value="50">+01:00 Tunisia</Option>
+<Option value="412">+01:00 Vatican City</Option>
+<Option value="337">+02:00 Aaland Islands</Option>
+<Option value="4">+02:00 Botswana</Option>
+<Option value="345">+02:00 Bulgaria</Option>
+<Option value="6">+02:00 Burundi</Option>
+<Option value="11">+02:00 Congo (Dem. Rep.): east Dem. Rep. of Congo</Option>
+<Option value="238">+02:00 Cyprus</Option>
+<Option value="15">+02:00 Egypt</Option>
+<Option value="349">+02:00 Estonia</Option>
+<Option value="350">+02:00 Finland</Option>
+<Option value="355">+02:00 Greece</Option>
+<Option value="249">+02:00 Israel</Option>
+<Option value="251">+02:00 Jordan</Option>
+<Option value="362">+02:00 Latvia</Option>
+<Option value="262">+02:00 Lebanon</Option>
+<Option value="25">+02:00 Lesotho</Option>
+<Option value="27">+02:00 Libya</Option>
+<Option value="364">+02:00 Lithuania</Option>
+<Option value="28">+02:00 Malawi</Option>
+<Option value="368">+02:00 Moldova</Option>
+<Option value="32">+02:00 Mozambique</Option>
+<Option value="273">+02:00 Palestine: Gaza Strip</Option>
+<Option value="274">+02:00 Palestine: West Bank</Option>
+<Option value="377">+02:00 Romania</Option>
+<Option value="277">+02:00 Russia: Kaliningrad</Option>
+<Option value="36">+02:00 Rwanda</Option>
+<Option value="41">+02:00 South Africa</Option>
+<Option value="47">+02:00 Swaziland</Option>
+<Option value="301">+02:00 Syria</Option>
+<Option value="408">+02:00 Turkey</Option>
+<Option value="409">+02:00 Ukraine: most locations</Option>
+<Option value="410">+02:00 Ukraine: Ruthenia</Option>
+<Option value="411">+02:00 Ukraine: Zaporozh'ye, E Lugansk / Zaporizhia, E Luhansk</Option>
+<Option value="53">+02:00 Zambia</Option>
+<Option value="54">+02:00 Zimbabwe</Option>
+<Option value="212">+03:00 Antarctica: Syowa Station, E Ongul I</Option>
+<Option value="231">+03:00 Bahrain</Option>
+<Option value="341">+03:00 Belarus</Option>
+<Option value="416">+03:00 Comoros</Option>
+<Option value="14">+03:00 Djibouti</Option>
+<Option value="17">+03:00 Eritrea</Option>
+<Option value="18">+03:00 Ethiopia</Option>
+<Option value="248">+03:00 Iraq</Option>
+<Option value="24">+03:00 Kenya</Option>
+<Option value="259">+03:00 Kuwait</Option>
+<Option value="418">+03:00 Madagascar</Option>
+<Option value="421">+03:00 Mayotte</Option>
+<Option value="276">+03:00 Qatar</Option>
+<Option value="280">+03:00 Russia: Caspian Sea</Option>
+<Option value="279">+03:00 Russia: Crimea</Option>
+<Option value="278">+03:00 Russia: west Russia(Moscow)</Option>
+<Option value="298">+03:00 Saudi Arabia</Option>
+<Option value="40">+03:00 Somalia</Option>
+<Option value="42">+03:00 South Sudan</Option>
+<Option value="46">+03:00 Sudan</Option>
+<Option value="48">+03:00 Tanzania</Option>
+<Option value="51">+03:00 Uganda</Option>
+<Option value="310">+03:00 Yemen</Option>
+<Option value="247">+03:30 Iran</Option>
+<Option value="229">+04:00 Armenia</Option>
+<Option value="230">+04:00 Azerbaijan</Option>
+<Option value="240">+04:00 Georgia</Option>
+<Option value="420">+04:00 Mauritius</Option>
+<Option value="271">+04:00 Oman</Option>
+<Option value="422">+04:00 Reunion</Option>
+<Option value="281">+04:00 Russia: Samara, Udmurtia</Option>
+<Option value="423">+04:00 Seychelles</Option>
+<Option value="306">+04:00 United Arab Emirates</Option>
+<Option value="228">+04:30 Afghanistan</Option>
+<Option value="207">+05:00 Antarctica: Mawson Station, Holme Bay</Option>
+<Option value="417">+05:00 French Southern &amp; Antarctic Lands</Option>
+<Option value="254">+05:00 Kazakhstan: Aqtobe (Aktobe)</Option>
+<Option value="255">+05:00 Kazakhstan: Atyrau (Atirau, Gur'yev), Mangghystau (Mankistau)</Option>
+<Option value="256">+05:00 Kazakhstan: West Kazakhstan</Option>
+<Option value="419">+05:00 Maldives</Option>
+<Option value="272">+05:00 Pakistan</Option>
+<Option value="282">+05:00 Russia: Urals</Option>
+<Option value="303">+05:00 Tajikistan</Option>
+<Option value="305">+05:00 Turkmenistan</Option>
+<Option value="308">+05:00 Uzbekistan: east Uzbekistan</Option>
+<Option value="307">+05:00 Uzbekistan: west Uzbekistan</Option>
+<Option value="242">+05:30 India</Option>
+<Option value="300">+05:30 Sri Lanka</Option>
+<Option value="270">+05:45 Nepal</Option>
+<Option value="210">+06:00 Antarctica: Vostok Station, Lake Vostok</Option>
+<Option value="232">+06:00 Bangladesh</Option>
+<Option value="233">+06:00 Bhutan</Option>
+<Option value="413">+06:00 British Indian Ocean Territory</Option>
+<Option value="237">+06:00 China: Xinjiang Time</Option>
+<Option value="252">+06:00 Kazakhstan: most locations</Option>
+<Option value="253">+06:00 Kazakhstan: Qyzylorda (Kyzylorda, Kzyl-Orda)</Option>
+<Option value="260">+06:00 Kyrgyzstan</Option>
+<Option value="284">+06:00 Russia: Novosibirsk</Option>
+<Option value="283">+06:00 Russia: west Siberia</Option>
+<Option value="415">+06:30 Cocos (Keeling) Islands</Option>
+<Option value="269">+06:30 Myanmar (Burma)</Option>
+<Option value="208">+07:00 Antarctica: Davis Station, Vestfold Hills</Option>
+<Option value="235">+07:00 Cambodia</Option>
+<Option value="414">+07:00 Christmas Island</Option>
+<Option value="243">+07:00 Indonesia: Java &amp; Sumatra</Option>
+<Option value="244">+07:00 Indonesia: west &amp; central Borneo</Option>
+<Option value="261">+07:00 Laos</Option>
+<Option value="267">+07:00 Mongolia: Bayan-Olgiy, Govi-Altai, Hovd, Uvs, Zavkhan</Option>
+<Option value="285">+07:00 Russia: Kemerovo</Option>
+<Option value="286">+07:00 Russia: Yenisei River</Option>
+<Option value="304">+07:00 Thailand</Option>
+<Option value="309">+07:00 Vietnam</Option>
+<Option value="209">+08:00 Antarctica: Casey Station, Bailey Peninsula</Option>
+<Option value="225">+08:00 Australia: Western Australia - most locations</Option>
+<Option value="234">+08:00 Brunei</Option>
+<Option value="236">+08:00 China: Beijing Time</Option>
+<Option value="241">+08:00 Hong Kong</Option>
+<Option value="245">+08:00 Indonesia: east &amp; south Borneo, Sulawesi (Celebes), Bali, Nusa Tengarra, west Timor</Option>
+<Option value="263">+08:00 Macau</Option>
+<Option value="264">+08:00 Malaysia: peninsular Malaysia</Option>
+<Option value="265">+08:00 Malaysia: Sabah &amp; Sarawak</Option>
+<Option value="268">+08:00 Mongolia: Dornod, Sukhbaatar</Option>
+<Option value="266">+08:00 Mongolia: most locations</Option>
+<Option value="275">+08:00 Philippines</Option>
+<Option value="287">+08:00 Russia: Lake Baikal</Option>
+<Option value="288">+08:00 Russia: Zabaykalsky</Option>
+<Option value="299">+08:00 Singapore</Option>
+<Option value="302">+08:00 Taiwan</Option>
+<Option value="226">+08:45 Australia: Western Australia - Eucla area</Option>
+<Option value="239">+09:00 East Timor</Option>
+<Option value="246">+09:00 Indonesia: west New Guinea (Irian Jaya) &amp; Malukus (Moluccas)</Option>
+<Option value="250">+09:00 Japan</Option>
+<Option value="257">+09:00 Korea (North)</Option>
+<Option value="258">+09:00 Korea (South)</Option>
+<Option value="449">+09:00 Palau</Option>
+<Option value="289">+09:00 Russia: Lena River</Option>
+<Option value="290">+09:00 Russia: Tomponsky, Ust-Maysky</Option>
+<Option value="220">+09:30 Australia: New South Wales - Yancowinna</Option>
+<Option value="224">+09:30 Australia: Northern Territory</Option>
+<Option value="223">+09:30 Australia: South Australia</Option>
+<Option value="211">+10:00 Antarctica: Dumont-d'Urville Station, Adelie Land</Option>
+<Option value="219">+10:00 Australia: New South Wales - most locations</Option>
+<Option value="222">+10:00 Australia: Queensland - Holiday Islands</Option>
+<Option value="221">+10:00 Australia: Queensland - most locations</Option>
+<Option value="217">+10:00 Australia: Tasmania - King Island</Option>
+<Option value="216">+10:00 Australia: Tasmania - most locations</Option>
+<Option value="218">+10:00 Australia: Victoria</Option>
+<Option value="433">+10:00 Guam</Option>
+<Option value="439">+10:00 Micronesia: Chuuk (Truk) and Yap</Option>
+<Option value="448">+10:00 Northern Mariana Islands</Option>
+<Option value="450">+10:00 Papua New Guinea: most locations</Option>
+<Option value="291">+10:00 Russia: Amur River</Option>
+<Option value="294">+10:00 Russia: Magadan</Option>
+<Option value="293">+10:00 Russia: Oymyakonsky</Option>
+<Option value="292">+10:00 Russia: Sakhalin Island</Option>
+<Option value="214">+10:30 Australia: Lord Howe Island</Option>
+<Option value="215">+11:00 Australia: Macquarie Island</Option>
+<Option value="441">+11:00 Micronesia: Kosrae</Option>
+<Option value="440">+11:00 Micronesia: Pohnpei (Ponape)</Option>
+<Option value="443">+11:00 New Caledonia</Option>
+<Option value="451">+11:00 Papua New Guinea: Bougainville</Option>
+<Option value="295">+11:00 Russia: E Sakha, N Kuril Is</Option>
+<Option value="455">+11:00 Solomon Islands</Option>
+<Option value="491">+11:00 Vanuatu</Option>
+<Option value="447">+11:30 Norfolk Island</Option>
+<Option value="204">+12:00 Antarctica: McMurdo, South Pole, Scott (New Zealand time)</Option>
+<Option value="429">+12:00 Fiji</Option>
+<Option value="434">+12:00 Kiribati: Gilbert Islands</Option>
+<Option value="438">+12:00 Marshall Islands: Kwajalein</Option>
+<Option value="437">+12:00 Marshall Islands: most locations</Option>
+<Option value="442">+12:00 Nauru</Option>
+<Option value="444">+12:00 New Zealand: most locations</Option>
+<Option value="297">+12:00 Russia: Bering Sea</Option>
+<Option value="296">+12:00 Russia: Kamchatka</Option>
+<Option value="458">+12:00 Tuvalu</Option>
+<Option value="490">+12:00 US minor outlying islands: Wake Island</Option>
+<Option value="492">+12:00 Wallis &amp; Futuna</Option>
+<Option value="445">+12:45 New Zealand: Chatham Islands</Option>
+<Option value="435">+13:00 Kiribati: Phoenix Islands</Option>
+<Option value="454">+13:00 Samoa (western)</Option>
+<Option value="456">+13:00 Tokelau</Option>
+<Option value="457">+13:00 Tonga</Option>
+<Option value="436">+14:00 Kiribati: Line Islands</Option>
+			</ProvisionItem>
+			<ProvisionItem id="2" Name="Automatic Adjustment for Daylight Saving" Type="ABLE" DefValue="Enabled"/>
+			<ProvisionItem id="3" Name="Current Time" Type="STRING" MinValue="0" MaxValue="64" DefValue="01/01/2015 00:00:00" Mode="RO"/>
+			<ProvisionItem id="4" Name="Status" Type="STRING" MinValue="0" MaxValue="64" DefValue="Disabled" Mode="RO" Edithidden="Yes"/>
+
+			<ProvisionItem id="5" Name="NTP Enable" Type="ABLE" DefValue="Disabled"/>
+			<ProvisionItem id="6" Name="NTP Server 1 Address" Type="STRING" MinValue="0" MaxValue="64" DefValue=""/>
+			<ProvisionItem id="7" Name="NTP Server 2 Address" Type="STRING" MinValue="0" MaxValue="64" DefValue=""/>
+			<ProvisionItem id="8" Name="NTP Server 3 Address" Type="STRING" MinValue="0" MaxValue="64" DefValue=""/>
+			<ProvisionItem id="9" Name="NTP Server 4 Address" Type="STRING" MinValue="0" MaxValue="64" DefValue=""/>
+			<ProvisionItem id="10" Name="NTP Server 5 Address" Type="STRING" MinValue="0" MaxValue="64" DefValue=""/>
+
+			<ProvisionItem id="11" Name="NTP Renewal Interval Unit" Type="LIST" DefValue="1">
+				<Option value="0">Hours</Option>
+				<Option value="1">Days</Option>
+			</ProvisionItem>
+			<ProvisionItem id="12" Name="NTP Renewal Interval" Type="U8" MinValue="1" MaxValue="255" DefValue="1"/>
+
+			<ProvisionItem id="13" Name="Set Time" Type="ABLE" DefValue="Disabled"/>
+			<ProvisionItem id="14" Name="Year" Type="U16" MinValue="1900" DefValue="2015"/>
+			<ProvisionItem id="15" Name="Month" Type="U8" MinValue="1" MaxValue="12" DefValue="1"/>
+			<ProvisionItem id="16" Name="Day" Type="U8" MinValue="1" MaxValue="31" DefValue="1"/>
+			<ProvisionItem id="17" Name="Hour" Type="U8" MinValue="0" MaxValue="23" DefValue="0"/>
+			<ProvisionItem id="18" Name="Minute" Type="U8" MinValue="0" MaxValue="59" DefValue="0"/>
+			<ProvisionItem id="19" Name="Second" Type="U8" MinValue="0" MaxValue="59" DefValue="0"/>
+		</ProvisionDesc>
+
+		<ProvisionDesc id="8" Name="TR069 Config" Type="MG" PortNumber="1">
+			<ProvisionItem id="1" Name="Enable CWMP" Type="ABLE" DefValue="Disabled" Mode="RW"/>
+			<ProvisionItem id="12" Name="DataModule" Type="LIST" DefValue="0">
+				<Option value="0">InternetGatewayDevice</Option>
+				<Option value="1">Device1</Option>
+				<Option value="2">Device2</Option>
+			</ProvisionItem>
+			<ProvisionItem id="2" Name="Management Server URL" Type="STRING" DefValue="" MinValue="0" MaxValue="256" Mode="RW"/>
+			<ProvisionItem id="3" Name="Username" Type="STRING" DefValue="" MinValue="0" MaxValue="256" Mode="RW"/>
+			<ProvisionItem id="4" Name="Password" Type="STRING" DefValue="" MinValue="0" MaxValue="256" Mode="RW"/>
+			<ProvisionItem id="5" Name="Periodic Inform Enable" Type="ABLE" DefValue="Enabled" Mode="RW"/>
+			<ProvisionItem id="6" Name="Periodic Inform Interval" Type="U16" DefValue="1800" MinValue="30" MaxValue="65535" Mode="RW"/>
+			<ProvisionItem id="7" Name="Periodic Inform Time" Type="STRING" DefValue="0000-00-00T00:00:00Z" MinValue="20" MaxValue="21" Mode="RO"/>
+			<ProvisionItem id="8" Name="ParameterKey" Type="STRING" DefValue="" MinValue="0" MaxValue="32" Mode="RO"/>
+			<ProvisionItem id="9" Name="Connection Request URL" Type="STRING" DefValue="" MinValue="0" MaxValue="256" Mode="RO"/>
+			<ProvisionItem id="10" Name="Connection Request Username" Type="STRING" DefValue="" MinValue="0" MaxValue="256" Mode="RW"/>
+			<ProvisionItem id="11" Name="Connection Request Password" Type="STRING" DefValue="" MinValue="0" MaxValue="256" Mode="RW"/>
+			<ProvisionItem id="13" Name="Upgrades Managed" Type="ABLE" DefValue="Disabled" Mode="RW"/>
+<!--			<ProvisionItem id="14" Name="Boot Count" Type="U32" DefValue="0" Edithidden="Yes"/> -->
+			<ProvisionItem id="15" Name="Boot Strap" Type="YN" DefValue="Yes"/>
+			<ProvisionItem id="16" Name="Console Log" Type="LIST" DefValue="0">
+				<Option value="0">Disabled</Option>
+				<Option value="1">Trace</Option>
+				<Option value="2">Debug</Option>
+				<Option value="3">Info</Option>
+				<Option value="4">Warning</Option>
+				<Option value="5">Error</Option>
+				<Option value="6">Fatal</Option>
+			</ProvisionItem>
+			<ProvisionItem id="17" Name="File Log" Type="LIST" DefValue="5">
+				<Option value="0">Disabled</Option>
+				<Option value="1">Trace</Option>
+				<Option value="2">Debug</Option>
+				<Option value="3">Info</Option>
+				<Option value="4">Warning</Option>
+				<Option value="5">Error</Option>
+				<Option value="6">Fatal</Option>
+			</ProvisionItem>
+		</ProvisionDesc>
+	</PROVISION>
+
+	<SETTINGTAB>
+		<!-- item max id now is 45. -->
+		<SettingDesc id="1" Name="Voice Profile" Table="YES" MaxRecord="72">
+			<FIELD id="1" Name="Record No." Type="U8" Key="YES" MinValue="1" MaxValue="72" DefValue="1" Step="1"/>
+			<FIELD id="41" Name="Profile Name" Type="STRING" MinValue="0" MaxValue="63" DefValue=""/>
+
+<!--			<FIELD id="27" Name="Configure Server from DHCP" Type="YN" DefValue="No" Summaryhidden="Yes"/> -->
+			<FIELD id="39" Name="Use Global Config" Type="YN" DefValue="Yes"/>
+			<FIELD id="4" Name="SIP User Agent Domain" Type="STRING" MinValue="0" MaxValue="256" DefValue="" Notedit="SettingDesc,1,39,1"/>
+<!--			<FIELD id="5" Name="SIP User Agent Port" Type="U16" MinValue="1" MaxValue="65535" DefValue="5060" Edithidden="Yes" Summaryhidden="Yes"/> -->
+			<FIELD id="40" Name="Registrar Domain" Type="STRING" MinValue="0" MaxValue="256" DefValue="" Notedit="SettingDesc,1,39,1"/>
+			<FIELD id="6"  Name="Registrar Server" Type="STRING" MinValue="0" MaxValue="256" DefValue="" Notedit="SettingDesc,1,39,1"/>
+			<FIELD id="11" Name="Registrar Server Port" Type="U16" MinValue="1" MaxValue="65535" DefValue="5060" Notedit="SettingDesc,1,39,1"/>
+			<FIELD id="7" Name="Outbound Proxy" Type="STRING" MinValue="0" MaxValue="256" DefValue="" Notedit="SettingDesc,1,39,1"/>
+			<FIELD id="8" Name="Outbound Proxy Port" Type="U16" MinValue="1" MaxValue="65535" DefValue="5060" Notedit="SettingDesc,1,39,1"/>
+			<FIELD id="9" Name="Register Expires" Type="U16" MinValue="60" MaxValue="65535" DefValue="3600" Unit="Sec" Notedit="SettingDesc,1,39,1"/>
+			<FIELD id="10" Name="Registration Period" Type="U16" MinValue="60" MaxValue="65535" DefValue="3600" Unit="Sec" Notedit="SettingDesc,1,39,1"/>
+
+			<FIELD id="43" Name="Flashkey Event" Type="LIST" DefValue="0">
+				<Option value="0">Re-Invite</Option>
+				<Option value="1">SIP Info</Option>
+			</FIELD>
+			<FIELD id="44" Name="Flashkey SIP Info Media Type" Type="STRING" MinValue="0" MaxValue="24" DefValue="hook-flash" Notedit="SettingDesc,1,43,0"/>
+			<FIELD id="45" Name="Flashkey SIP Info Event" Type="STRING" MinValue="0" MaxValue="64" DefValue="Signal=hf" Notedit="SettingDesc,1,43,0"/>
+
+			<FIELD id="42" Name="Feature Profile" Type="RELATION" Aliastag="2" MinValue="0" MaxValue="72" DefValue="0" RelId="9" Empty="Yes"/>
+			<FIELD id="2" Name="Digitmap Enable" Type="ABLE" DefValue="Enabled"/>
+			<FIELD id="3" Name="Digitmap" Type="STRING" MinValue="0" MaxValue="1024" DefValue="[0-9*#]." Summaryhidden="Yes" Notedit="SettingDesc,1,2,0"/>
+
+			<FIELD id="12" Name="PTime Template 1" Type="LIST" DefValue="20" Mode="RO" Edithidden="Yes" Summaryhidden="Yes">
+				<Option value="5">5ms</Option>
+				<Option value="10">10ms</Option>
+				<Option value="20">20ms</Option>
+				<Option value="30">30ms</Option>
+				<Option value="40">40ms</Option>
+				<Option value="50">50ms</Option>
+				<Option value="60">60ms</Option>
+			</FIELD>
+
+			<FIELD id="13" Name="PTime Template 2" Type="LIST" DefValue="30" Mode="RO" Edithidden="Yes" Summaryhidden="Yes">
+				<Option value="30">30ms</Option>
+				<Option value="60">60ms</Option>
+				<Option value="90">90ms</Option>
+			</FIELD>
+
+			<FIELD id="14" Name="Codec Template" Type="LIST" Template="Yes" DefValue="1" Mode="RO" Edithidden="Yes" Summaryhidden="Yes">
+				<Option value="0" onSelect="hide(PacketTime)">Disabled</Option>
+				<Option value="1" onSelect="set(PacketTime,Template,12)">G.711ALaw</Option>
+				<Option value="2" onSelect="set(PacketTime,Template,12)">G.711MuLaw</Option>
+				<Option value="3" onSelect="set(PacketTime,Template,12)">G.729</Option>
+				<Option value="4" onSelect="set(PacketTime,Template,13)">G.723.1 6.3Kbps</Option>
+				<Option value="5" onSelect="set(PacketTime,Template,13)">G.723.1 5.3Kbps</Option>
+<!--
+				<Option value="6" onSelect="set(PacketTime,Template,12)">G.726 16Kbps</Option>
+				<Option value="7" onSelect="set(PacketTime,Template,12)">G.726 24Kbps</Option>
+				<Option value="8" onSelect="set(PacketTime,Template,12)">G.726 32Kbps</Option>
+				<Option value="9" onSelect="set(PacketTime,Template,12)">G.726 40Kbps</Option>
+				<Option value="10" onSelect="hide(PacketTime)">G.722</Option>
+-->
+			</FIELD>
+
+			<FIELD id="15" Name="1st Codec" Type="LIST" DefValue="1" Template="14" PacketTime="16" Summaryhidden="Yes"/>
+			<FIELD id="16" Name="Packet Time 1" Type="LIST" DefValue="20" Template="" Summaryhidden="Yes" Follow="Packet Time"/>
+			<FIELD id="17" Name="2nd Codec" Type="LIST" DefValue="2" Template="14" PacketTime="18" Summaryhidden="Yes"/>
+			<FIELD id="18" Name="Packet Time 2" Type="LIST" DefValue="20" Template="" Summaryhidden="Yes" Follow="Packet Time"/>
+			<FIELD id="19" Name="3rd Codec" Type="LIST" DefValue="3" Template="14" PacketTime="20" Summaryhidden="Yes"/>
+			<FIELD id="20" Name="Packet Time 3" Type="LIST" DefValue="20" Template="" Summaryhidden="Yes" Follow="Packet Time"/>
+			<FIELD id="21" Name="4th Codec" Type="LIST" DefValue="0" Template="14" PacketTime="22" Summaryhidden="Yes"/>
+			<FIELD id="22" Name="Packet Time 4" Type="LIST" DefValue="0"  Template="" Summaryhidden="Yes" Follow="Packet Time"/>
+			<FIELD id="23" Name="5th Codec" Type="LIST" DefValue="0" Template="14" PacketTime="24" Summaryhidden="Yes"/>
+			<FIELD id="24" Name="Packet Time 5" Type="LIST" DefValue="0"  Template="" Summaryhidden="Yes" Follow="Packet Time"/>
+			<FIELD id="25" Name="6th Codec" Type="LIST" DefValue="0" Template="14" PacketTime="26" Summaryhidden="Yes"/>
+			<FIELD id="26" Name="Packet Time 6" Type="LIST" DefValue="0"  Template="" Summaryhidden="Yes" Follow="Packet Time"/>
+		</SettingDesc>
+
+		<!-- item max id now is 30/47. -->
+		<SettingDesc id="2" Name="Line Profile" Table="YES" MaxRecord="72">
+			<FIELD id="1" Name="Record No." Type="U8" Key="YES" MinValue="1" MaxValue="72" DefValue="1" Step="1"/>
+			<FIELD id="27" Name="Profile Name" Type="STRING" MinValue="0" MaxValue="63" DefValue=""/>
+			<FIELD id="8" Name="Physical Line" Type="STRING" MinValue="1" MaxValue="72" DefValue="" Copy="No"/>
+			<FIELD id="3" Name="Enable" Type="ABLE" DefValue="Disabled"/>
+			<FIELD id="35" Name="Enable Register" Type="ABLE" DefValue="Enabled"/>
+			<FIELD id="26" Name="Phone Prefix" Type="STRING" MinValue="0" MaxValue="16" DefValue=""/> 
+			<FIELD id="4" Name="Directory Number" Type="STRING" MinValue="0" MaxValue="256" DefValue="" Copy="No"/>
+			<FIELD id="5" Name="Caller ID Name" Type="STRING" MinValue="0" MaxValue="256" DefValue=""/>
+			<FIELD id="9" Name="SIP Auth User Name" Type="STRING" MinValue="0" MaxValue="128" DefValue="" EncyptKey="24"/>
+			<FIELD id="10" Name="SIP Auth Password" Type="STRING" MinValue="0" MaxValue="128" DefValue="" EncyptKey="24" Summaryhidden="Yes"/>
+			<FIELD id="24" Name="SIP Auth Key" Type="STRING" MinValue="0" MaxValue="16" DefValue="" Edithidden="Yes" Summaryhidden="Yes" Config="No"/>
+<!--			<FIELD id="25" Name="Clear Password" Type="YN" DefValue="No" Summaryhidden="Yes"/> -->
+			<FIELD id="29" Name="SIP Username TR069" Type="STRING" MinValue="0" MaxValue="129" DefValue="" Edithidden="Yes" Summaryhidden="Yes" Config="No"/>
+			<FIELD id="30" Name="SIP Password TR069" Type="STRING" MinValue="0" MaxValue="129" DefValue="" Edithidden="Yes" Summaryhidden="Yes" Config="No"/>
+			<FIELD id="2" Name="Voice Profile" Type="RELATION" Aliastag="41" MinValue="1" MaxValue="72" DefValue="1" RelId="1"/>
+			<FIELD id="37" Name="Hunt Group" Type="RELATION" Aliastag="24" MinValue="0" MaxValue="36" DefValue="0" RelId="5" Empty="Yes"/>
+
+			<FIELD id="28" Name="Feature Profile" Type="RELATION" Aliastag="2" MinValue="0" MaxValue="72" DefValue="0" RelId="9" Empty="Yes"/>
+			<FIELD id="18" Name="Call Forward Unconditional Number" Type="STRING" MinValue="0" MaxValue="32" DefValue="" Summaryhidden="Yes"/>
+			<FIELD id="20" Name="Call Forward On Busy Number" Type="STRING" MinValue="0" MaxValue="32" DefValue="" Summaryhidden="Yes"/>
+			<FIELD id="22" Name="Call Forward No Answer Number" Type="STRING" MinValue="0" MaxValue="32" DefValue="" Summaryhidden="Yes"/>
+			<FIELD id="45" Name="Hot Line Number" Type="STRING" MinValue="0" MaxValue="32" DefValue="" Summaryhidden="Yes"/>
+			<FIELD id="34" Name="SIP URI" Type="STRING" MinValue="0" MaxValue="389" DefValue="" Mode="RO" Edithidden="Yes" Summaryhidden="Yes"/>
+<!--
+			<FIELD id="39" Name="SIP URI Protocol" Type="STRING" MinValue="0" MaxValue="256" DefValue="" Mode="RO" Edithidden="Yes" Summaryhidden="Yes"/>
+			<FIELD id="40" Name="SIP URI User" Type="STRING" MinValue="0" MaxValue="256" DefValue="" Mode="RO" Edithidden="Yes" Summaryhidden="Yes"/>
+			<FIELD id="41" Name="SIP URI Password" Type="STRING" MinValue="0" MaxValue="256" DefValue="" Mode="RO" Edithidden="Yes" Summaryhidden="Yes"/>
+			<FIELD id="42" Name="SIP URI Host" Type="STRING" MinValue="0" MaxValue="256" DefValue="" Mode="RO" Edithidden="Yes" Summaryhidden="Yes"/>
+			<FIELD id="43" Name="SIP URI Port" Type="U16" MinValue="0" MaxValue="65535" DefValue="5060" Mode="RO" Edithidden="Yes" Summaryhidden="Yes"/>
+-->
+			<FIELD id="100" Name="Speed Dialing 00" Type="STRING" MinValue="0" MaxValue="32" DefValue="" Edithidden="Yes" Summaryhidden="Yes" Config="No"/>
+			<FIELD id="101" Name="Speed Dialing 01" Type="STRING" MinValue="0" MaxValue="32" DefValue="" Edithidden="Yes" Summaryhidden="Yes" Config="No"/>
+			<FIELD id="102" Name="Speed Dialing 02" Type="STRING" MinValue="0" MaxValue="32" DefValue="" Edithidden="Yes" Summaryhidden="Yes" Config="No"/>
+			<FIELD id="103" Name="Speed Dialing 03" Type="STRING" MinValue="0" MaxValue="32" DefValue="" Edithidden="Yes" Summaryhidden="Yes" Config="No"/>
+			<FIELD id="104" Name="Speed Dialing 04" Type="STRING" MinValue="0" MaxValue="32" DefValue="" Edithidden="Yes" Summaryhidden="Yes" Config="No"/>
+			<FIELD id="105" Name="Speed Dialing 05" Type="STRING" MinValue="0" MaxValue="32" DefValue="" Edithidden="Yes" Summaryhidden="Yes" Config="No"/>
+			<FIELD id="106" Name="Speed Dialing 06" Type="STRING" MinValue="0" MaxValue="32" DefValue="" Edithidden="Yes" Summaryhidden="Yes" Config="No"/>
+			<FIELD id="107" Name="Speed Dialing 07" Type="STRING" MinValue="0" MaxValue="32" DefValue="" Edithidden="Yes" Summaryhidden="Yes" Config="No"/>
+			<FIELD id="108" Name="Speed Dialing 08" Type="STRING" MinValue="0" MaxValue="32" DefValue="" Edithidden="Yes" Summaryhidden="Yes" Config="No"/>
+			<FIELD id="109" Name="Speed Dialing 09" Type="STRING" MinValue="0" MaxValue="32" DefValue="" Edithidden="Yes" Summaryhidden="Yes" Config="No"/>
+			<FIELD id="110" Name="Speed Dialing 10" Type="STRING" MinValue="0" MaxValue="32" DefValue="" Edithidden="Yes" Summaryhidden="Yes" Config="No"/>
+			<FIELD id="111" Name="Speed Dialing 11" Type="STRING" MinValue="0" MaxValue="32" DefValue="" Edithidden="Yes" Summaryhidden="Yes" Config="No"/>
+			<FIELD id="112" Name="Speed Dialing 12" Type="STRING" MinValue="0" MaxValue="32" DefValue="" Edithidden="Yes" Summaryhidden="Yes" Config="No"/>
+			<FIELD id="113" Name="Speed Dialing 13" Type="STRING" MinValue="0" MaxValue="32" DefValue="" Edithidden="Yes" Summaryhidden="Yes" Config="No"/>
+			<FIELD id="114" Name="Speed Dialing 14" Type="STRING" MinValue="0" MaxValue="32" DefValue="" Edithidden="Yes" Summaryhidden="Yes" Config="No"/>
+			<FIELD id="115" Name="Speed Dialing 15" Type="STRING" MinValue="0" MaxValue="32" DefValue="" Edithidden="Yes" Summaryhidden="Yes" Config="No"/>
+			<FIELD id="116" Name="Speed Dialing 16" Type="STRING" MinValue="0" MaxValue="32" DefValue="" Edithidden="Yes" Summaryhidden="Yes" Config="No"/>
+			<FIELD id="117" Name="Speed Dialing 17" Type="STRING" MinValue="0" MaxValue="32" DefValue="" Edithidden="Yes" Summaryhidden="Yes" Config="No"/>
+			<FIELD id="118" Name="Speed Dialing 18" Type="STRING" MinValue="0" MaxValue="32" DefValue="" Edithidden="Yes" Summaryhidden="Yes" Config="No"/>
+			<FIELD id="119" Name="Speed Dialing 19" Type="STRING" MinValue="0" MaxValue="32" DefValue="" Edithidden="Yes" Summaryhidden="Yes" Config="No"/>
+		</SettingDesc>
+
+		<SettingDesc id="9" Name="Feature Profile" Table="YES" MaxRecord="199"
+ Help="Profile numbers above 127 are reserved for individual line.&lt;br&gt;
+If &#34;Pound Sign key&#34; is enabled, the dialed numbers prior to the pound sign &#39;#&#39; are sent out immediately
+without waiting for digit timeout. If disabled, the pound sign &#39;#&#39; will be sent as dialed number.&lt;br&gt;
+Please note Pound Sign key is only effective if digitmap is disabled or the number is not matched to the digitmap in voice profile.">
+			<FIELD id="1" Name="Record No." Type="U8" Key="YES" MinValue="1" MaxValue="199" DefValue="1" Step="1"/>
+			<FIELD id="2" Name="Profile Name" Type="STRING" MinValue="0" MaxValue="63" DefValue=""/>
+			<FIELD id="3" Name="Do Not Disturb" Type="ABLE" DefValue="Disabled"/>
+			<FIELD id="4" Name="Call Waiting" Type="ABLE" DefValue="Enabled"/>
+			<FIELD id="5" Name="Call Hold" Type="ABLE" DefValue="Enabled"/>
+			<FIELD id="6" Name="Call Hold Tone" Type="ABLE" DefValue="Disabled"/>
+			<FIELD id="7" Name="Call Transfer" Type="ABLE" DefValue="Disabled"/>
+			<FIELD id="8" Name="3 Way Conference" Type="ABLE" DefValue="Disabled"/>
+			<FIELD id="9" Name="Call Forward Unconditional" Type="ABLE" DefValue="Disabled"/>
+			<FIELD id="10" Name="Call Forward On Busy" Type="ABLE" DefValue="Disabled"/>
+			<FIELD id="11" Name="Call Forward No Answer" Type="ABLE" DefValue="Disabled"/>
+			<FIELD id="12" Name="Hot Line" Type="ABLE" DefValue="Disabled"/>
+			<FIELD id="13" Name="Hot Line Timeout" Type="U8" DefValue="5" MinValue="0" MaxValue="10" Unit="Sec"/>
+
+			<FIELD id="20" Name="Pound Sign Key" Type="ABLE" DefValue="Enabled"/>
+			<FIELD id="21" Name="Flash Key" Type="ABLE" DefValue="Enabled"/>
+			<FIELD id="22" Name="Caller ID Type" Type="LIST" DefValue="1">
+				<Option value="1">Post-Ring FSK</Option>
+				<Option value="2">Post-Ring DTMF</Option>
+				<Option value="3">Pre-Ring FSK</Option>
+				<Option value="4">Pre-Ring DTMF</Option>
+			</FIELD>
+			<FIELD id="23" Name="Voice Activity Detection" Type="ABLE" DefValue="Enabled"/>
+			<FIELD id="24" Name="Comfort Noise" Type="ABLE" DefValue="Enabled"/>
+			<FIELD id="26" Name="Voice Band Data" Type="ABLE" DefValue="Enabled"/>
+			<FIELD id="25" Name="Echo Cancellation Tail" Type="LIST" DefValue="48">
+				<Option value="0">Disable</Option>
+				<Option value="8">8 ms.</Option>
+				<Option value="16">16 ms.</Option>
+				<Option value="32">32 ms.</Option>
+				<Option value="48">48 ms.</Option>
+				<Option value="64">64 ms.</Option>
+				<Option value="128">128 ms.</Option>
+			</FIELD>
+			<FIELD id="27" Name="Ring On Cadence" Type="LIST" DefValue="1" Unit="Sec">
+				<Option value="1">1</Option>
+				<Option value="2">2</Option>
+				<Option value="3">3</Option>
+				<Option value="4">4</Option>
+				<Option value="5">5</Option>
+				<Option value="6">6</Option>
+			</FIELD>
+			<FIELD id="28" Name="Ring Off Cadence" Type="LIST" DefValue="2" Unit="Sec">
+				<Option value="1">1</Option>
+				<Option value="2">2</Option>
+				<Option value="3">3</Option>
+				<Option value="4">4</Option>
+				<Option value="5">5</Option>
+				<Option value="6">6</Option>
+			</FIELD>
+			<FIELD id="29" Name="Ring Voltage" Type="LIST" DefValue="85" Unit="Volt">
+				<Option value="60">60</Option>
+				<Option value="65">65</Option>
+				<Option value="80">80</Option>
+				<Option value="85">85</Option>
+				<Option value="95">95</Option>
+				<Option value="100">100</Option>
+				<Option value="110">110</Option>
+			</FIELD>
+			<FIELD id="30" Name="SLIC TX Gain" Type="FLOAT" Format="%.1f" DefValue="0.0" Unit="db" MinValue="-6.0" MaxValue="3.0"/>
+			<FIELD id="31" Name="SLIC RX Gain" Type="FLOAT" Format="%.1f" DefValue="0.0" Unit="db" MinValue="-6.0" MaxValue="3.0"/>
+		</SettingDesc>
+
+		<!-- item max id now is 7. -->
+		<SettingDesc id="3" Name="Capability Codecs" Table="YES" MaxRecord="16" Mode="RO" Edithidden="Yes">
+			<FIELD id="1" Name="Record No." Type="U8" Key="YES" MinValue="1" MaxValue="5" DefValue="1" Step="1" Summaryhidden="Yes"/>
+			<FIELD id="2" Name="Alias" Type="STRING" MinValue="0" MaxValue="64" DefValue=""/>
+			<FIELD id="3" Name="Codec" Type="STRING" MinValue="0" MaxValue="64" DefValue=""/>
+			<FIELD id="4" Name="BitRate" Type="U32" MinValue="5300" MaxValue="64000" DefValue=""/>
+			<FIELD id="5" Name="Packetization Period" Type="STRING" MinValue="0" MaxValue="64" DefValue=""/>
+			<FIELD id="6" Name="Silence Suppression" Type="ABLE" DefValue="Disabled" Summaryhidden="Yes"/>
+			<FIELD id="7" Name="RTP Payload Type" Type="U8" DefValue="255" Summaryhidden="Yes"/>
+		</SettingDesc>
+
+<!--
+		<SettingDesc id="4" Name="Codec" Table="YES" MaxRecord="288">
+			<FIELD id="1" Name="Record No." Type="U16" Key="YES" MinValue="1" MaxValue="288" DefValue="1" Step="1"/>
+			<FIELD id="2" Name="Line Profile" Type="RELATION" MinValue="1" MaxValue="72" DefValue="1" RelId="2"/>
+			<FIELD id="3" Name="Capability Record No." Type="RELATION" DefValue="1" RelId="3" />
+			<FIELD id="4" Name="Alias" Type="STRING" MinValue="0" MaxValue="64" DefValue="" />
+			<FIELD id="5" Name="Codec" Type="STRING" MinValue="0" MaxValue="64" Ref="3,3" DefValue="" Mode="RO" />
+			<FIELD id="6" Name="BitRate" Type="U32" MinValue="5300" MaxValue="64000" Ref="3,4" DefValue="" Mode="RO" />
+			<FIELD id="7" Name="Packetization Period" Type="STRING" MinValue="1" MaxValue="32" DefValue="20"/>
+			<FIELD id="8" Name="Silence Suppression" Type="ABLE" DefValue="Disabled"/>
+			<FIELD id="9" Name="Enable" Type="ABLE" DefValue="Disabled"/>
+			<FIELD id="10" Name="Priority" Type="LIST" DefValue="1">
+				<Option value="1">1</Option>
+				<Option value="2">2</Option>
+				<Option value="3">3</Option>
+				<Option value="4">4</Option>
+				<Option value="5">5</Option>
+			</FIELD>
+		</SettingDesc>
+-->
+		
+		<!-- item max id now is 24. -->
+		<SettingDesc id="5" Name="Hunt Group" Table="YES" MaxRecord="36" Help="Linear: ring one member line at a time, always start with the first member.&lt;br&gt;
+Circular: ring one member line at a time, the beginning member is shifted circularly every time.&lt;br&gt;
+Ring All: ring all member lines every time.">
+			<FIELD id="1" Name="Record No." Type="U8" Key="YES" MinValue="1" MaxValue="36" DefValue="1" Step="1"/>
+			<FIELD id="24" Name="Group Name" Type="STRING" MinValue="0" MaxValue="63" DefValue=""/>
+			<FIELD id="2" Name="Algorithm" Type="LIST" DefValue="2">
+				<Option value="1">Linear</Option>
+				<Option value="2">Circular</Option>
+				<Option value="3">Ring All</Option>
+			</FIELD>
+			<FIELD id="3" Name="Caller ID Name" Type="STRING" MinValue="0" MaxValue="256" DefValue="" Copy="No"/>
+			<FIELD id="4" Name="SIP Auth User Name" Type="STRING" MinValue="0" MaxValue="128" DefValue="" EncyptKey="20"/>
+			<FIELD id="5" Name="SIP Auth Password" Type="STRING" MinValue="0" MaxValue="128" DefValue="" EncyptKey="20" Summaryhidden="Yes"/>
+			<FIELD id="20" Name="SIP Auth Key" Type="STRING" MinValue="0" MaxValue="16" DefValue="" Edithidden="Yes" Summaryhidden="Yes" Config="No"/>
+<!--			<FIELD id="21" Name="Clear Password" Type="YN" DefValue="No" Summaryhidden="Yes"/>
+			<FIELD id="6" Name="SIP URI" Type="STRING" MinValue="0" MaxValue="389" DefValue="" Mode="RO" Edithidden="Yes" Summaryhidden="Yes"/>
+			<FIELD id="15" Name="SIP URI Protocol" Type="STRING" MinValue="0" MaxValue="256" DefValue="" Mode="RO" Edithidden="Yes" Summaryhidden="Yes"/>
+			<FIELD id="16" Name="SIP URI User" Type="STRING" MinValue="0" MaxValue="256" DefValue="" Mode="RO" Edithidden="Yes" Summaryhidden="Yes"/>
+			<FIELD id="17" Name="SIP URI Password" Type="STRING" MinValue="0" MaxValue="256" DefValue="" Mode="RO" Edithidden="Yes" Summaryhidden="Yes"/>
+			<FIELD id="18" Name="SIP URI Host" Type="STRING" MinValue="0" MaxValue="256" DefValue="" Mode="RO" Edithidden="Yes" Summaryhidden="Yes"/>
+			<FIELD id="19" Name="SIP URI Port" Type="U16" MinValue="0" MaxValue="65535" DefValue="5060" Mode="RO" Edithidden="Yes" Summaryhidden="Yes"/> -->
+			<FIELD id="7" Name="Enable Register" Type="ABLE" DefValue="Enabled"/>
+			<FIELD id="22" Name="Use Global Config" Type="YN" DefValue="Yes"/>
+			<FIELD id="8" Name="SIP User Agent Domain" Type="STRING" MinValue="0" MaxValue="256" DefValue="" Notedit="SettingDesc,5,22,1"/>
+			<FIELD id="23" Name="Registrar Domain" Type="STRING" MinValue="0" MaxValue="256" DefValue="" Notedit="SettingDesc,5,22,1"/>
+			<FIELD id="9"  Name="Registrar Server" Type="STRING" MinValue="0" MaxValue="256" DefValue="" Notedit="SettingDesc,5,22,1"/>
+			<FIELD id="10" Name="Registrar Server Port" Type="U16" MinValue="1" MaxValue="65535" DefValue="5060" Notedit="SettingDesc,5,22,1"/>
+			<FIELD id="11" Name="Outbound Proxy" Type="STRING" MinValue="0" MaxValue="256" DefValue="" Notedit="SettingDesc,5,22,1"/>
+			<FIELD id="12" Name="Outbound Proxy Port" Type="U16" MinValue="1" MaxValue="65535" DefValue="5060" Notedit="SettingDesc,5,22,1"/>
+			<FIELD id="13" Name="Register Expires" Type="U16" MinValue="60" MaxValue="65535" DefValue="3600" Unit="Sec" Notedit="SettingDesc,5,22,1"/>
+			<FIELD id="14" Name="Registration Period" Type="U16" MinValue="60" MaxValue="65535" DefValue="3600" Unit="Sec" Notedit="SettingDesc,5,22,1"/>
+		</SettingDesc>
+
+		<SettingDesc id="6" Name="Dialing Plan" Table="YES" MaxRecord="72"
+ Help="If Voice Profile is not selected, this is a global rule.">
+			<FIELD id="1" Name="Record No." Type="U8" Key="YES" MinValue="1" MaxValue="72" DefValue="1" Step="1"/>
+			<FIELD id="2" Name="Profile Name" Type="STRING" MinValue="0" MaxValue="63" DefValue=""/>
+			<FIELD id="3" Name="Enable" Type="ABLE" DefValue="Enabled"/>
+			<FIELD id="4" Name="Only for Local Call" Type="YN" DefValue="No"/>
+			<FIELD id="5" Name="Voice Profile" Type="RELATION" Aliastag="41" MinValue="0" MaxValue="72" DefValue="0" RelId="1" Empty="Yes"/>
+			<FIELD id="6" Name="Minimum Number Length" Type="U8" MinValue="0" MaxValue="31" DefValue="0"/>
+			<FIELD id="7" Name="Maximum Number Length" Type="U8" MinValue="0" MaxValue="31" DefValue="0"/>
+			<FIELD id="8" Name="Prefix" Type="STRING" MinValue="1" MaxValue="31" DefValue="8"/>
+			<FIELD id="9" Name="Prefix Remove Length" Type="U8" MinValue="0" MaxValue="31" DefValue="0"/>
+			<FIELD id="10" Name="Prefix Insert" Type="STRING" MinValue="0" MaxValue="31" DefValue=""/>
+		</SettingDesc>
+
+	</SETTINGTAB>
+
+	<STATUS Ver="2">
+		<StatusDesc id="1" Name="Global Status" Type="MG">
+			<StatusItem id="1" Type="U8" Name="Total Port Numbers" Mode="RO"/>
+			<StatusItem id="2" Type="U8" Name="Configured Lines" Mode="RO"/>
+			<StatusItem id="3" Type="U8" Name="Registered Lines" Mode="RO"/>
+			<StatusItem id="4" Type="U8" Name="Active Lines" Mode="RO"/>
+			<StatusItem id="5" Type="U8" Name="Configured Groups" Mode="RO"/>
+			<StatusItem id="6" Type="U8" Name="Registered Groups" Mode="RO"/>
+			<StatusItem id="7" Type="U8" Name="Active Groups" Mode="RO"/>
+		</StatusDesc>
+
+		<StatusDesc id="5" Name="Line Config" Type="MG" Table="YES" MaxRecord="72">
+			<StatusItem id="1" Name="Port" Type="U16" Key="YES" DefValue="1" Step="1"/>
+			<StatusItem id="2" Name="Pound Key" Type="ABLE"/>
+			<StatusItem id="3" Name="Flash Key" Type="ABLE"/>
+			<StatusItem id="4" Name="Caller ID" Type="STRING" MaxValue="31"/>
+			<StatusItem id="5" Name="VAD" Type="ABLE"/>
+			<StatusItem id="6" Name="CNG" Type="ABLE"/>
+			<StatusItem id="7" Name="VBD" Type="ABLE"/>
+			<StatusItem id="8" Name="ECT" Type="U8" Unit="mSec"/>
+			<StatusItem id="9" Name="Ring On" Type="U8" Unit="Sec"/>
+			<StatusItem id="10" Name="Ring Off" Type="U8" Unit="Sec"/>
+			<StatusItem id="11" Name="Ring Voltage" Type="U8" Unit="Volt"/>
+			<StatusItem id="12" Name="TX Gain" Type="FLOAT" Format="%.1f" Unit="db"/>
+			<StatusItem id="13" Name="RX Gain" Type="FLOAT" Format="%.1f" Unit="db"/>
+		</StatusDesc>
+
+		<StatusDesc id="2" Name="Line Features" Type="MG" Table="YES" MaxRecord="72" Help="Click a status row to view its features!">
+			<StatusItem id="1" Name="Port" Type="U16" Key="YES" DefValue="1" Step="1"/>
+			<StatusItem id="2" Name="Port Status" Type="STRING" MaxValue="128" />
+			<StatusItem id="3" Name="Directory Number" Type="STRING" MaxValue="256" />
+			<StatusItem id="4" Name="Registrar Server" Type="STRING" MaxValue="256" />
+			<StatusItem id="5" Name="Registered Status" Type="STRING" MaxValue="128" />
+			<StatusItem id="6" Name="SLIC Status" Type="STRING" MaxValue="128" />
+
+			<StatusItem id="7" Name="Do Not Disturb (local)" Type="ABLE" Summaryhidden="Yes"/>
+			<StatusItem id="8" Name="Call Waiting (local)" Type="ABLE" Summaryhidden="Yes"/>
+			<StatusItem id="9" Name="Call Waiting (server)" Type="ABLE" Summaryhidden="Yes"/>
+			<StatusItem id="10" Name="Call Hold (local)" Type="ABLE" Summaryhidden="Yes"/>
+			<StatusItem id="11" Name="Call Hold (server)" Type="ABLE" Summaryhidden="Yes"/>
+			<StatusItem id="12" Name="Call Transfer (local)" Type="ABLE" Summaryhidden="Yes"/>
+			<StatusItem id="13" Name="Call Transfer (server)" Type="ABLE" Summaryhidden="Yes"/>
+			<StatusItem id="14" Name="3 Way Conference (local)" Type="ABLE" Summaryhidden="Yes"/>
+			<StatusItem id="15" Name="3 Way Conference (server)" Type="ABLE" Summaryhidden="Yes"/>
+			<StatusItem id="16" Name="Call Forward Unconditional" Type="ABLE" Summaryhidden="Yes"/>
+			<StatusItem id="17" Name="Call Forward Unconditional Number" Type="STRING" MaxValue="32" Summaryhidden="Yes"/>
+			<StatusItem id="18" Name="Call Forward On Busy" Type="ABLE" Summaryhidden="Yes"/>
+			<StatusItem id="19" Name="Call Forward On Busy Number" Type="STRING" MaxValue="32" Summaryhidden="Yes"/>
+			<StatusItem id="20" Name="Call Forward No Answer" Type="ABLE" Summaryhidden="Yes"/>
+			<StatusItem id="21" Name="Call Forward No Answer Number" Type="STRING" MaxValue="32" Summaryhidden="Yes"/>
+			<StatusItem id="22" Name="Hot Line (local)" Type="ABLE" Summaryhidden="Yes"/>
+			<StatusItem id="23" Name="Hot Line (server)" Type="ABLE" Summaryhidden="Yes"/>
+			<StatusItem id="24" Name="Hot Line Number (local)" Type="STRING" MaxValue="64" Summaryhidden="Yes"/>
+			<StatusItem id="25" Name="Hot Line Number (server)" Type="STRING" MaxValue="64" Summaryhidden="Yes"/>
+			<StatusItem id="26" Name="Hot Line Timeout (local)" Type="U8" Summaryhidden="Yes"/>
+			<StatusItem id="27" Name="Hot Line Timeout (server)" Type="U8" Summaryhidden="Yes"/>
+		</StatusDesc>
+
+		<StatusDesc id="3" Name="Line Statistics" Type="MG" Table="YES" MaxRecord="72" Help="Click a status row to view its statistics!">
+			<StatusItem id="1" Name="Port" Type="U16" Key="YES" DefValue="1" Step="1"/>
+			<StatusItem id="2" Name="Port Status" Type="STRING" MaxValue="128" />
+			<StatusItem id="3" Name="Directory Number" Type="STRING" MaxValue="256" />
+			<StatusItem id="4" Name="Registrar Server" Type="STRING" MaxValue="256" />
+			<StatusItem id="5" Name="Registered Status" Type="STRING" MaxValue="128" />
+			<StatusItem id="6" Name="SLIC Status" Type="STRING" MaxValue="128" />
+
+			<StatusItem id="7" Name="TransmitCodec" Type="STRING" MaxValue="64" Summaryhidden="Yes"/>
+			<StatusItem id="8" Name="ReceiveCodec" Type="STRING" MaxValue="64" Summaryhidden="Yes"/>
+			<StatusItem id="9" Name="TransmitBitRate" Type="U16" Summaryhidden="Yes"/>
+			<StatusItem id="10" Name="ReceiveBitRate" Type="U16" Summaryhidden="Yes"/>
+			<StatusItem id="11" Name="TransmitSilenceSuppression" Type="YN" Summaryhidden="Yes"/>
+			<StatusItem id="12" Name="ReceiveSilenceSuppression" Type="YN" Summaryhidden="Yes"/>
+			<StatusItem id="13" Name="TransmitPacketizationPeriod" Type="U8" Summaryhidden="Yes"/>
+
+			<StatusItem id="14" Name="reset" Type="ABLE" DefValue="0" Mode="WO" Summaryhidden="Yes" Action="Reset"/>
+
+			<!-- status id's must be in order, check ProvAdd_LineProfile_StatusByKeyApi() -->
+			<StatusItem id="15" Name="IncomingCallsReceived" Type="U32" Summaryhidden="Yes"/>
+			<StatusItem id="16" Name="IncomingCallsAnswered" Type="U32" Summaryhidden="Yes"/>
+			<StatusItem id="17" Name="IncomingCallsConnected" Type="U32" Summaryhidden="Yes"/>
+			<StatusItem id="18" Name="IncomingCallsForwarded" Type="U32" Summaryhidden="Yes"/>
+			<StatusItem id="19" Name="IncomingCallsFailed" Type="U32" Summaryhidden="Yes"/>
+			<StatusItem id="20" Name="OutgoingCallsAttempted" Type="U32" Summaryhidden="Yes"/>
+			<StatusItem id="21" Name="OutgoingCallsAnswered" Type="U32" Summaryhidden="Yes"/>
+			<StatusItem id="22" Name="OutgoingCallsConnected" Type="U32" Summaryhidden="Yes"/>
+			<StatusItem id="23" Name="OutgoingCallsFailed" Type="U32" Summaryhidden="Yes"/>
+		</StatusDesc>
+
+		<StatusDesc id="4" Name="SFP Status" Type="MG">
+			<StatusItem id="1" Type="STRING" MaxValue="16" Name="Port Service" Mode="RO"/>
+			<StatusItem id="2" Type="STRING" MaxValue="20" Name="Vendor Name" Mode="RO"/>
+			<StatusItem id="3" Type="STRING" MaxValue="20" Name="Vendor PN" Mode="RO"/>
+			<StatusItem id="4" Type="U16" Name="Laser Wavelength (nm)" Mode="RO"/>
+			<StatusItem id="5" Type="U16" Name="Bit Rate (Mbits/sec)" Mode="RO"/>
+			<StatusItem id="6" Type="STRING" MaxValue="64" Name="Ethernet Compliance" Mode="RO"/>
+			<StatusItem id="7" Type="U16" Name="Length 9um (m)" Mode="RO"/>
+			<StatusItem id="8" Type="U16" Name="Length 50um (m)" Mode="RO"/>
+			<StatusItem id="9" Type="U16" Name="Length 62.5um (m)" Mode="RO"/>
+			<StatusItem id="10" Type="U16" Name="Length Copper (m)" Mode="RO"/>
+			<StatusItem id="11" Type="STRING" MaxValue="25" Name="Temperature (C)" Mode="RO"/>
+			<StatusItem id="12" Type="STRING" MaxValue="25" Name="Power Tx (mW)" Mode="RO"/>
+			<StatusItem id="13" Type="STRING" MaxValue="25" Name="Power Rx (mW)" Mode="RO"/>
+		</StatusDesc>
+	</STATUS>
+
+	<TEST UserPri="oper">
+		<TestDesc id="1" Name="Combined Multi-Test" Type="MG" PortNumber="$$PORTNUM$$" Mode="RO">
+			<TestItem id="1" Name="AC Tip-Ground" Type="STRING" DefValue="" MinValue="1" MaxValue="20" Mode="RO"/>
+			<TestItem id="2" Name="AC Ring-Ground" Type="STRING" DefValue="" MinValue="1" MaxValue="20" Mode="RO"/>
+			<TestItem id="3" Name="AC Tip-Ring" Type="STRING" DefValue="" MinValue="1" MaxValue="20" Mode="RO"/>
+			<TestItem id="4" Name="DC Tip-Ground" Type="STRING" DefValue="" MinValue="1" MaxValue="20" Mode="RO"/>
+			<TestItem id="5" Name="DC Ring-Ground" Type="STRING" DefValue="" MinValue="1" MaxValue="20" Mode="RO"/>
+			<TestItem id="6" Name="DC Tip-Ring" Type="STRING" DefValue="" MinValue="1" MaxValue="20" Mode="RO"/>
+			<TestItem id="7" Name="Capacitance Tip-Ground" Type="STRING" DefValue="" MinValue="1" MaxValue="20" Mode="RO"/>
+			<TestItem id="8" Name="Capacitance Ring-Ground" Type="STRING" DefValue="" MinValue="1" MaxValue="20" Mode="RO"/>
+			<TestItem id="9" Name="Capacitance Tip-Ring" Type="STRING" DefValue="" MinValue="1" MaxValue="20" Mode="RO"/>
+			<TestItem id="10" Name="Resistance Tip-Ground" Type="STRING" DefValue="" MinValue="1" MaxValue="20" Mode="RO"/>
+			<TestItem id="11" Name="Resistance Ring-Ground" Type="STRING" DefValue="" MinValue="1" MaxValue="20" Mode="RO"/>
+			<TestItem id="12" Name="Resistance Tip-Ring" Type="STRING" DefValue="" MinValue="1" MaxValue="20" Mode="RO"/>
+		</TestDesc>
+
+		<TestDesc id="2" Name="Foreign AC Voltages" Type="MG" PortNumber="$$PORTNUM$$" Mode="RO">
+			<TestItem id="1" Name="Tip-Ground" Type="STRING" DefValue="" MinValue="1" MaxValue="20" Mode="RO"/>
+			<TestItem id="2" Name="Ring-Ground" Type="STRING" DefValue="" MinValue="1" MaxValue="20" Mode="RO"/>
+			<TestItem id="3" Name="Tip-Ring" Type="STRING" DefValue="" MinValue="1" MaxValue="20" Mode="RO"/>
+		</TestDesc>
+
+		<TestDesc id="3" Name="Foreign DC Voltages" Type="MG" PortNumber="$$PORTNUM$$" Mode="RO">
+			<TestItem id="1" Name="Tip-Ground" Type="STRING" DefValue="" MinValue="1" MaxValue="20" Mode="RO"/>
+			<TestItem id="2" Name="Ring-Ground" Type="STRING" DefValue="" MinValue="1" MaxValue="20" Mode="RO"/>
+			<TestItem id="3" Name="Tip-Ring" Type="STRING" DefValue="" MinValue="1" MaxValue="20" Mode="RO"/>
+		</TestDesc>
+
+		<TestDesc id="4" Name="Three Elements Capacitance" Type="MG" PortNumber="$$PORTNUM$$" Mode="RO">
+			<TestItem id="1" Name="Tip-Ground" Type="STRING" DefValue="" MinValue="1" MaxValue="20" Mode="RO"/>
+			<TestItem id="2" Name="Ring-Ground" Type="STRING" DefValue="" MinValue="1" MaxValue="20" Mode="RO"/>
+			<TestItem id="3" Name="Tip-Ring" Type="STRING" DefValue="" MinValue="1" MaxValue="20" Mode="RO"/>
+		</TestDesc>
+
+		<TestDesc id="5" Name="Three Elements Insulation Resistance" Type="MG" PortNumber="$$PORTNUM$$" Mode="RO">
+			<TestItem id="1" Name="Tip-Ground" Type="STRING" DefValue="" MinValue="1" MaxValue="20" Mode="RO"/>
+			<TestItem id="2" Name="Ring-Ground" Type="STRING" DefValue="" MinValue="1" MaxValue="20" Mode="RO"/>
+			<TestItem id="3" Name="Tip-Ring" Type="STRING" DefValue="" MinValue="1" MaxValue="20" Mode="RO"/>
+		</TestDesc>
+
+		<TestDesc id="6" Name="DC Loop Resistance" Type="MG" PortNumber="$$PORTNUM$$" Mode="RO">
+			<TestItem id="1" Name="DC Loop Resistance" Type="STRING" DefValue="" MinValue="1" MaxValue="20" Mode="RO"/>
+		</TestDesc>
+
+		<TestDesc id="7" Name="Loop Conditions" Type="MG" PortNumber="$$PORTNUM$$" Mode="RO">
+			<TestItem id="1" Name="Loop Resistance" Type="STRING" DefValue="" MinValue="1" MaxValue="20" Mode="RO"/>
+			<TestItem id="2" Name="Longitudinal Current" Type="STRING" DefValue="" MinValue="1" MaxValue="20" Mode="RO"/>
+			<TestItem id="3" Name="Metallic Current" Type="STRING" DefValue="" MinValue="1" MaxValue="20" Mode="RO"/>
+			<TestItem id="4" Name="Tip/Ring Voltage" Type="STRING" DefValue="" MinValue="1" MaxValue="20" Mode="RO"/>
+			<TestItem id="5" Name="Battery High" Type="STRING" DefValue="" MinValue="1" MaxValue="20" Mode="RO"/>
+			<TestItem id="6" Name="Battery Low" Type="STRING" DefValue="" MinValue="1" MaxValue="20" Mode="RO"/>
+			<TestItem id="7" Name="Battery Positive" Type="STRING" DefValue="" MinValue="1" MaxValue="20" Mode="RO"/>
+		</TestDesc>
+
+		<TestDesc id="8" Name="Ringing Self-Test" Type="MG" PortNumber="$$PORTNUM$$" Mode="RO">
+			<TestItem id="1" Name="Test Result" Type="STRING" DefValue="" MinValue="1" MaxValue="20" Mode="RO"/>
+		</TestDesc>
+
+		<TestDesc id="9" Name="Key Detection" Type="MG" PortNumber="$$PORTNUM$$" Mode="RO" Help="Please pickup the handset before test!">
+			<TestItem id="1" Name="Test Result" Type="STRING" DefValue="" MinValue="1" MaxValue="20" Mode="RO"/>
+		</TestDesc>
+
+		<TestDesc id="10" Name="Ringer Equivalency Number" Type="MG" PortNumber="$$PORTNUM$$" Mode="RO">
+			<TestItem id="1" Name="Ringer Equivalency Number" Type="STRING" DefValue="" MinValue="1" MaxValue="20" Mode="RO"/>
+		</TestDesc>
+
+		<TestDesc id="11" Name="Loop Capacitance" Type="MG" PortNumber="$$PORTNUM$$" Mode="RO">
+			<TestItem id="1" Name="Loop Capacitance" Type="STRING" DefValue="" MinValue="1" MaxValue="20" Mode="RO"/>
+		</TestDesc>
+	</TEST>
+
+	<ALARMSA UserPri="oper">
+		<AlarmSADesc id="1" Name="List Current Alarms" Type="Card" Mode="RO" Table="YES" MaxRecord="28" PageNumber="2" MaxCounts="14">
+			<AlarmSAItem id="1" Name="Record No." Type="U16" Key="YES" MinValue="1" MaxValue="28" DefValue="1" Step="1"/>
+			<AlarmSAItem id="2" Name="Port" Type="STRING" Mode="RO" MinValue="1" MaxValue="40"/> <!-- Loc : Slot-Port-onuID -->
+			<AlarmSAItem id="3" Name="AlarmType" Type="STRING" Mode="RO" MinValue="1" MaxValue="40"/>
+			<AlarmSAItem id="4" Name="Severity" Type="STRING" Mode="RO" MinValue="1" MaxValue="40"/>
+			<AlarmSAItem id="5" Name="SetTime" Type="STRING" Mode="RO" MinValue="1" MaxValue="40"/>
+		</AlarmSADesc>
+
+		<AlarmSADesc id="2" Name="List Alarm History" Type="Card" Mode="RO" Table="YES" MaxRecord="84" PageNumber="6" MaxCounts="14">
+			<AlarmSAItem id="1" Name="Record No." Type="U16" Key="YES" MinValue="1" MaxValue="84" DefValue="1" Step="1"/>
+			<AlarmSAItem id="2" Name="Port" Type="STRING" Mode="RO" MinValue="1" MaxValue="40"/>
+			<AlarmSAItem id="3" Name="AlarmType" Type="STRING" Mode="RO" MinValue="1" MaxValue="40"/>
+			<AlarmSAItem id="4" Name="Severity" Type="STRING" Mode="RO" MinValue="1" MaxValue="40"/>
+			<AlarmSAItem id="5" Name="SetTime" Type="STRING" Mode="RO" MinValue="1" MaxValue="40"/>
+			<AlarmSAItem id="6" Name="ClearTime" Type="STRING" Mode="RO" MinValue="1" MaxValue="40"/>
+		</AlarmSADesc>
+
+		<AlarmSADesc id="5" Name="Modify Alarm Severity" Type="Card" Mode="RW">
+			<AlarmSAItem id="1" Name="WAN Link Down" Type="LIST" DefValue="1" Mode="RW">
+				<Option value="0">Critical</Option>
+				<Option value="1">Major</Option>
+				<Option value="2">Minor</Option>
+				<Option value="3">Event</Option>
+				<Option value="4">Info</Option>
+			</AlarmSAItem>
+			<AlarmSAItem id="2" Name="NMS Link Down" Type="LIST" DefValue="1" Mode="RW">
+				<Option value="0">Critical</Option>
+				<Option value="1">Major</Option>
+				<Option value="2">Minor</Option>
+				<Option value="3">Event</Option>
+				<Option value="4">Info</Option>
+			</AlarmSAItem>
+			<AlarmSAItem id="3" Name="SoftSwitch Link Loss" Type="LIST" DefValue="1" Mode="RW">
+				<Option value="0">Critical</Option>
+				<Option value="1">Major</Option>
+				<Option value="2">Minor</Option>
+				<Option value="3">Event</Option>
+				<Option value="4">Info</Option>
+			</AlarmSAItem>
+			<AlarmSAItem id="4" Name="SLIC Battery Fault" Type="LIST" DefValue="2" Mode="RW">
+				<Option value="0">Critical</Option>
+				<Option value="1">Major</Option>
+				<Option value="2">Minor</Option>
+				<Option value="3">Event</Option>
+				<Option value="4">Info</Option>
+			</AlarmSAItem>
+			<AlarmSAItem id="5" Name="SLIC Clock Fault" Type="LIST" DefValue="2" Mode="RW">
+				<Option value="0">Critical</Option>
+				<Option value="1">Major</Option>
+				<Option value="2">Minor</Option>
+				<Option value="3">Event</Option>
+				<Option value="4">Info</Option>
+			</AlarmSAItem>
+			<AlarmSAItem id="6" Name="SLIC Thermal Overload" Type="LIST" DefValue="2" Mode="RW">
+				<Option value="0">Critical</Option>
+				<Option value="1">Major</Option>
+				<Option value="2">Minor</Option>
+				<Option value="3">Event</Option>
+				<Option value="4">Info</Option>
+			</AlarmSAItem>
+			<AlarmSAItem id="7" Name="SLIC DC Fault" Type="LIST" DefValue="2" Mode="RW">
+				<Option value="0">Critical</Option>
+				<Option value="1">Major</Option>
+				<Option value="2">Minor</Option>
+				<Option value="3">Event</Option>
+				<Option value="4">Info</Option>
+			</AlarmSAItem>
+			<AlarmSAItem id="8" Name="SLIC AC Fault" Type="LIST" DefValue="2" Mode="RW">
+				<Option value="0">Critical</Option>
+				<Option value="1">Major</Option>
+				<Option value="2">Minor</Option>
+				<Option value="3">Event</Option>
+				<Option value="4">Info</Option>
+			</AlarmSAItem>
+			<AlarmSAItem id="9" Name="SLIC Synchronization Fault" Type="LIST" DefValue="2" Mode="RW">
+				<Option value="0">Critical</Option>
+				<Option value="1">Major</Option>
+				<Option value="2">Minor</Option>
+				<Option value="3">Event</Option>
+				<Option value="4">Info</Option>
+			</AlarmSAItem>
+			<AlarmSAItem id="10" Name="External FAN" Type="LIST" DefValue="2" Mode="RW">
+				<Option value="0">Critical</Option>
+				<Option value="1">Major</Option>
+				<Option value="2">Minor</Option>
+				<Option value="3">Event</Option>
+				<Option value="4">Info</Option>
+			</AlarmSAItem>
+			<AlarmSAItem id="11" Name="External Alarm1" Type="LIST" DefValue="2" Mode="RW">
+				<Option value="0">Critical</Option>
+				<Option value="1">Major</Option>
+				<Option value="2">Minor</Option>
+				<Option value="3">Event</Option>
+				<Option value="4">Info</Option>
+			</AlarmSAItem>
+			<AlarmSAItem id="12" Name="External Alarm2" Type="LIST" DefValue="2" Mode="RW">
+				<Option value="0">Critical</Option>
+				<Option value="1">Major</Option>
+				<Option value="2">Minor</Option>
+				<Option value="3">Event</Option>
+				<Option value="4">Info</Option>
+			</AlarmSAItem>
+			<AlarmSAItem id="13" Name="Call Fault" Type="LIST" DefValue="3" Mode="RW">
+				<Option value="0">Critical</Option>
+				<Option value="1">Major</Option>
+				<Option value="2">Minor</Option>
+				<Option value="3">Event</Option>
+				<Option value="4">Info</Option>
+			</AlarmSAItem>
+			<AlarmSAItem id="14" Name="DHCP IP Change" Type="LIST" DefValue="3" Mode="RW">
+				<Option value="0">Critical</Option>
+				<Option value="1">Major</Option>
+				<Option value="2">Minor</Option>
+				<Option value="3">Event</Option>
+				<Option value="4">Info</Option>
+			</AlarmSAItem>
+<!--
+			<AlarmSAItem id="15" Name="Reboot" Type="LIST" DefValue="0" Mode="RW">
+				<Option value="0">Critical</Option>
+				<Option value="1">Major</Option>
+				<Option value="2">Minor</Option>
+				<Option value="3">Event</Option>
+				<Option value="4">Info</Option>
+			</AlarmSAItem>
+-->
+			<AlarmSAItem id="16" Name="BootUp" Type="LIST" DefValue="4" Mode="RW">
+				<Option value="0">Critical</Option>
+				<Option value="1">Major</Option>
+				<Option value="2">Minor</Option>
+				<Option value="3">Event</Option>
+				<Option value="4">Info</Option>
+			</AlarmSAItem>
+		</AlarmSADesc>
+
+		<AlarmSADesc id="6" Name="Modify Alarm Reporting" Type="Card" Mode="RW">
+			<AlarmSAItem id="1" Name="WAN Link Down" Type="LIST" DefValue="1" Mode="RW">
+				<Option value="0">No</Option>
+				<Option value="1">Yes</Option>
+			</AlarmSAItem>
+			<AlarmSAItem id="2" Name="NMS Link Down" Type="LIST" DefValue="1" Mode="RW">
+				<Option value="0">No</Option>
+				<Option value="1">Yes</Option>
+			</AlarmSAItem>
+			<AlarmSAItem id="3" Name="SoftSwitch Link Loss" Type="LIST" DefValue="1" Mode="RW">
+				<Option value="0">No</Option>
+				<Option value="1">Yes</Option>
+			</AlarmSAItem>
+			<AlarmSAItem id="4" Name="SLIC Battery Fault" Type="LIST" DefValue="1" Mode="RW">
+				<Option value="0">No</Option>
+				<Option value="1">Yes</Option>
+			</AlarmSAItem>
+			<AlarmSAItem id="5" Name="SLIC Clock Fault" Type="LIST" DefValue="1" Mode="RW">
+				<Option value="0">No</Option>
+				<Option value="1">Yes</Option>
+			</AlarmSAItem>
+			<AlarmSAItem id="6" Name="SLIC Thermal Overload" Type="LIST" DefValue="1" Mode="RW">
+				<Option value="0">No</Option>
+				<Option value="1">Yes</Option>
+			</AlarmSAItem>
+			<AlarmSAItem id="7" Name="SLIC DC Fault" Type="LIST" DefValue="1" Mode="RW">
+				<Option value="0">No</Option>
+				<Option value="1">Yes</Option>
+			</AlarmSAItem>
+			<AlarmSAItem id="8" Name="SLIC AC Fault" Type="LIST" DefValue="1" Mode="RW">
+				<Option value="0">No</Option>
+				<Option value="1">Yes</Option>
+			</AlarmSAItem>
+			<AlarmSAItem id="9" Name="SLIC Synchronization Fault" Type="LIST" DefValue="1" Mode="RW">
+				<Option value="0">No</Option>
+				<Option value="1">Yes</Option>
+			</AlarmSAItem>
+			<AlarmSAItem id="10" Name="External FAN" Type="LIST" DefValue="0" Mode="RW">
+				<Option value="0">No</Option>
+				<Option value="1">Yes</Option>
+			</AlarmSAItem>
+			<AlarmSAItem id="11" Name="External Alarm1" Type="LIST" DefValue="0" Mode="RW">
+				<Option value="0">No</Option>
+				<Option value="1">Yes</Option>
+			</AlarmSAItem>
+			<AlarmSAItem id="12" Name="External Alarm2" Type="LIST" DefValue="0" Mode="RW">
+				<Option value="0">No</Option>
+				<Option value="1">Yes</Option>
+			</AlarmSAItem>
+			<AlarmSAItem id="13" Name="Call Fault" Type="LIST" DefValue="0" Mode="RW">
+				<Option value="0">No</Option>
+				<Option value="1">Yes</Option>
+			</AlarmSAItem>
+			<AlarmSAItem id="14" Name="DHCP IP Change" Type="LIST" DefValue="1" Mode="RW">
+				<Option value="0">No</Option>
+				<Option value="1">Yes</Option>
+			</AlarmSAItem>
+<!--
+			<AlarmSAItem id="15" Name="Reboot" Type="LIST" DefValue="1" Mode="RW">
+				<Option value="0">No</Option>
+				<Option value="1">Yes</Option>
+			</AlarmSAItem>
+-->
+			<AlarmSAItem id="16" Name="BootUp" Type="LIST" DefValue="1" Mode="RW">
+				<Option value="0">No</Option>
+				<Option value="1">Yes</Option>
+			</AlarmSAItem>
+		</AlarmSADesc>
+	</ALARMSA>
+
+	<ADMINISTRATION>
+		<AdminDesc id="1" Name="Device Information" Type="MG" PortNumber="1" Mode="RO" Result="Yes" LogFile="1">
+			<AdminItem id="1" Name="Product" Type="STRING" MaxValue="128" Mode="RO"/>
+			<AdminItem id="2" Name="Software Version" Type="STRING" MaxValue="128" Mode="RO"/>
+			<AdminItem id="3" Name="Build Time" Type="STRING" MaxValue="128" Mode="RO"/>
+			<AdminItem id="4" Name="FPGA Hardware Version" Type="U8" Mode="RO"/>
+			<AdminItem id="5" Name="FPGA Software Version" Type="U8" Mode="RO"/>
+			<AdminItem id="6" Name="Serial Number" Type="STRING" MaxValue="32" Mode="RO"/>
+			<AdminItem id="7" Name="MAC Address" Type="MAC" Mode="RO"/>
+			<AdminItem id="8" Name="Current Time" Type="STRING" MaxValue="64" Mode="RO"/>
+			<AdminItem id="9" Name="Version File" Type="STRING" MaxValue="128" Mode="Hidden"/>
+			<AdminItem id="10" Name="Release Notes" Type="STRING" MaxValue="128" Mode="Hidden"/>
+			<AdminItem id="11" Name="Config File Prefix" Type="STRING" MaxValue="128" Mode="Hidden"/>
+			<AdminItem id="12" Name="Log File Prefix" Type="STRING" MaxValue="128" Mode="Hidden"/>
+		</AdminDesc>
+
+		<AdminDesc id="11" Name="Access List" Table="YES" MaxRecord="16" Mode="RW" UserPri="admin" Action="Save"
+ Help="Rules are applied in precedence. There must be denial rule for a preceding permission rule to actually take effect.&lt;br&gt;
+ Source address 192.168.201.0/24 is always permitted.">
+			<AdminItem id="1" Name="Rule" Type="U8" Key="YES" DefValue="1" Step="1" Edithidden="Yes"/>
+			<AdminItem id="2" Name="Valid" Type="YN" DefValue="No" Edithidden="Yes" Validate="Yes" Config="No"/>
+			<AdminItem id="3" Name="Type" Type="LIST" DefValue="1">
+				<Option value="0">Deny</Option>
+				<Option value="1">Permit</Option>
+			</AdminItem>
+			<AdminItem id="4" Name="Server" Type="LIST" DefValue="0">
+				<Option value="0">By Source</Option>
+				<Option value="1">Telnet/SSH</Option>
+				<Option value="2">Web</Option>
+				<Option value="3">TR-069</Option>
+				<Option value="4">SIP Signal</Option>
+				<Option value="5">SIP Media</Option>
+			</AdminItem>
+			<AdminItem id="5" Name="Invert Address" Type="YN" DefValue="No"/>
+			<AdminItem id="6" Name="Source Address" Type="STRING" DefValue="" MaxValue="64"/>
+			<AdminItem id="7" Name="Source Mask" Type="STRING" DefValue="" MaxValue="64"/>
+		</AdminDesc>
+
+		<AdminDesc id="2" Name="Save Settings" Type="MG" PortNumber="1" Mode="WO" UserPri="oper" Action="Save"/>
+
+		<AdminDesc id="3" Name="Upgrade Firmware" Type="MG" PortNumber="1" Mode="WO" UserPri="admin" Action="Upgrade">
+      <AdminItem id="1" Name="Protocol" Type="LIST" DefValue="1" Mode="WO">
+          <Option value="0">TFTP</Option>
+          <Option value="1">HTTP</Option>
+      </AdminItem>
+			<AdminItem id="2" Name="Tftp Server Address" Type="STRING" MinValue="0" MaxValue="64" DefValue=""/>
+			<AdminItem id="3" Name="File Name" Type="STRING" MinValue="0" MaxValue="255" DefValue=""/>
+      <AdminItem id="4" Name="HTTP File Select" Type="FILESELECT" MinValue="0" MaxValue="255"/>
+		</AdminDesc>
+
+		<AdminDesc id="4" Name="Backup Config" Type="MG" PortNumber="1" Mode="WO" UserPri="oper" Action="Backup" Download="Config">
+      <AdminItem id="4" Name="File Type" Type="LIST" DefValue="0" Mode="WO">
+          <Option value="0">Packed XML</Option>
+          <Option value="1">Simple XML</Option>
+      </AdminItem>
+      <AdminItem id="1" Name="Protocol" Type="LIST" DefValue="1" Mode="WO">
+          <Option value="0">TFTP</Option>
+          <Option value="1">HTTP</Option>
+      </AdminItem>
+			<AdminItem id="2" Name="Tftp Server Address" Type="STRING" MinValue="0" MaxValue="64" DefValue=""/>
+			<AdminItem id="3" Name="File Name" Type="STRING" MinValue="0" MaxValue="255" DefValue=""/>
+		</AdminDesc>
+
+		<AdminDesc id="5" Name="Restore Config" Type="MG" PortNumber="1" Mode="WO" UserPri="admin" Action="Restore">
+      <AdminItem id="5" Name="File Type" Type="LIST" DefValue="0" Mode="WO">
+          <Option value="0">Packed XML</Option>
+          <Option value="1">Simple XML</Option>
+      </AdminItem>
+      <AdminItem id="1" Name="Protocol" Type="LIST" DefValue="1" Mode="WO">
+          <Option value="0">TFTP</Option>
+          <Option value="1">HTTP</Option>
+      </AdminItem>
+			<AdminItem id="2" Name="Tftp Server Address" Type="STRING" MinValue="0" MaxValue="64" DefValue=""/>
+			<AdminItem id="3" Name="File Name" Type="STRING" MinValue="0" MaxValue="255" DefValue=""/>
+      <AdminItem id="4" Name="HTTP File Select" Type="FILESELECT" MinValue="0" MaxValue="255"/>
+		</AdminDesc>
+
+		<AdminDesc id="6" Name="Load Factory Default" Type="MG" PortNumber="1" Mode="WO" UserPri="admin" Action="Submit">
+			<AdminItem id="1" Name="Account" Type="U8" DefValue="255" Edithidden="Yes" WebVar="UserPri"/>
+			<AdminItem id="2" Name="Reset Own Account" Type="YN" DefValue="No"/>
+			<AdminItem id="3" Name="Reset User Accounts" Type="YN" DefValue="No"/>
+		</AdminDesc>
+
+		<AdminDesc id="7" Name="Reboot Device" Type="MG" PortNumber="1" Mode="WO" UserPri="oper" Action="Submit">
+			<AdminItem id="1" Name="Reboot" Type="LIST" DefValue="0" Mode="WO">
+				<Option value="0">With saving settings</Option>
+				<Option value="1">Without saving settings</Option>
+			</AdminItem>
+		</AdminDesc>
+
+		<AdminDesc id="8" Name="Set Line Standby" Type="MG" PortNumber="72" Mode="WO" UserPri="oper" Action="Set">
+			<AdminItem id="1" Name="Start line" Type="U8" MinValue="1" MaxValue="72" DefValue="1" Mode="WO"/>
+			<AdminItem id="2" Name="Number of lines" Type="U8" MinValue="1" MaxValue="72" DefValue="1" Mode="WO"/>
+		</AdminDesc>
+
+		<AdminDesc id="9" Name="IP Ping Diagnostics" Type="MG" PortNumber="1" Mode="RW" Action="Run" Result="Yes" Config="No">
+			<AdminItem id="1" Name="Interface" Type="STRING" MinValue="0" MaxValue="256" DefValue="" Edithidden="Yes"/> <!-- not used -->
+			<AdminItem id="2" Name="Host" Type="STRING" MinValue="0" MaxValue="256" DefValue=""/>
+			<AdminItem id="3" Name="Number Of Repetitions" Type="U32" MinValue="1" MaxValue="4294967295" DefValue="3"/>
+			<AdminItem id="4" Name="Timeout" Type="U32" MinValue="1" MaxValue="4294967295" DefValue="5000"/>
+			<AdminItem id="5" Name="Data Block Size" Type="U16" MinValue="1" MaxValue="65535" DefValue="64"/>
+			<AdminItem id="6" Name="IP TOS" Type="U8" MinValue="0" MaxValue="255" DefValue="0"/>
+			<AdminItem id="7" Name="Diagnostics State" Type="STRING" MinValue="0" MaxValue="64" DefValue="None" Mode="RO" Edithidden="Yes"/>
+			<AdminItem id="8" Name="Success Count" Type="U32" MinValue="0" MaxValue="4294967295" DefValue="0" Mode="RO" Edithidden="Yes"/>
+			<AdminItem id="9" Name="Failure Count" Type="U32" MinValue="0" MaxValue="4294967295" DefValue="0" Mode="RO" Edithidden="Yes"/>
+			<AdminItem id="10" Name="Average Response Time" Type="U32" MinValue="0" MaxValue="4294967295" DefValue="0" Mode="RO" Edithidden="Yes"/>
+			<AdminItem id="11" Name="Minimum Response Time" Type="U32" MinValue="0" MaxValue="4294967295" DefValue="0" Mode="RO" Edithidden="Yes"/>
+			<AdminItem id="12" Name="Maximum Response Time" Type="U32" MinValue="0" MaxValue="4294967295" DefValue="0" Mode="RO" Edithidden="Yes"/>
+		</AdminDesc>
+
+		<AdminDesc id="10" Name="Account Management" Type="MG" PortNumber="1" Mode="RW" Action="Save" Config="No">
+			<AdminItem id="1" Name="Account" Type="U8" DefValue="1" Edithidden="Yes" Mode="RO"/>
+			<AdminItem id="2" Name="Account Name" Type="STRING" MinValue="0" MaxValue="64" DefValue="" Mode="RO"/>
+			<AdminItem id="3" Name="Username" Type="STRING" MinValue="0" MaxValue="64" DefValue=""/>
+			<AdminItem id="4" Name="Password" Type="PASSWD" MinValue="0" MaxValue="64" DefValue=""/>
+		</AdminDesc>
+	</ADMINISTRATION>
+
+	<CUSTOM>
+		<CUSTOM Country="7">
+			<PROVISION>
+				<ProvisionDesc id="2" Name="Telephony Config">
+					<ProvisionItem id="10" Name="Country" DefValue="7"/>
+				</ProvisionDesc>
+				<ProvisionDesc id="5" Name="NTP Config">
+					<ProvisionItem id="1" Name="Timezone" DefValue="278"/>
+				</ProvisionDesc>
+			</PROVISION>
+		</CUSTOM>
+		<CUSTOM Country="7" Custom="5">
+			<PROVISION>
+				<ProvisionDesc id="2" Name="Telephony Config">
+					<ProvisionItem id="11" Name="Country Custom Number" DefValue="5"/>
+					<ProvisionItem id="3" Name="Flash Time (Max)" DefValue="800"/>
+					<ProvisionItem id="4" Name="Flash Time (Min)" DefValue="80"/>
+				</ProvisionDesc>
+				<ProvisionDesc id="3" Name="SIP Global Config">
+					<ProvisionItem id="16" Name="SIP Signal Packet Timeout" DefValue="10"/>
+					<ProvisionItem id="17" Name="Register Expires" DefValue="300"/>
+					<ProvisionItem id="18" Name="Registration Period" DefValue="300"/>
+					<ProvisionItem id="6"  Name="Escape Pound Sign" DefValue="Disabled"/>
+				</ProvisionDesc>
+			</PROVISION>
+			<SETTINGTAB>
+				<SettingDesc id="1" Name="Voice Profile">
+					<FIELD id="9" Name="Register Expires" DefValue="300"/>
+					<FIELD id="10" Name="Registration Period" DefValue="300"/>
+					<FIELD id="3" Name="Digitmap" DefValue="0[1234679]|0[05]X|08XX|1[02]X|11[0-59]|11[68]XX|13XX|1[4-79]XX.|18[12]|18[03-9]X.|813|8144|819X|85513|810XXXX.|8[25][1-5][34679]XXXXXXXXX|8[25][1-5]8[1-7]XXXXXXXX|8[25][06-9][02-9]XXXXX.|8[25]X1XX|815XXXXXXXXXXXXXX.|8[346789]XXXXXXXXX|[*#]XX*[0-9*]XX.#|[*#]XX#|*#XX*[0-9*]XX.#|*#XX#|X."/>
+				</SettingDesc>
+				<SettingDesc id="5" Name="Hunt Group">
+					<FIELD id="13" Name="Register Expires" DefValue="300"/>
+					<FIELD id="14" Name="Registration Period" DefValue="300"/>
+				</SettingDesc>
+			</SETTINGTAB>
+		</CUSTOM>
+	</CUSTOM>
+</CardProperty>
+

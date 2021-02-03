@@ -1,0 +1,11 @@
+declare function local:nl() { "&#10;" };
+<test>
+{ local:nl() }
+{
+	let $all := .//ProvisionItem[@id=2]
+	return
+		for $a in $all
+		return ( <e Name="{ $a/@Name }">{ data($a/@id) }</e>, local:nl() )
+}
+</test>
+

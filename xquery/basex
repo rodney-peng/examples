@@ -1,0 +1,2 @@
+[ -n "$1" ] && java -cp BaseX84.jar org.basex.BaseX $@
+

@@ -1,0 +1,71 @@
+diff --git a/libc/stdlib/malloc-standard/free.c b/libc/stdlib/malloc-standard/free.c
+index 39e54d6..d2d1fe4 100644
+--- a/libc/stdlib/malloc-standard/free.c
++++ b/libc/stdlib/malloc-standard/free.c
+@@ -261,6 +261,7 @@ void attribute_hidden __malloc_consolidate(mstate av)
+     }
+ }
+ 
++void (* free_hook)(size_t size, void* mem) = NULL;
+ 
+ /* ------------------------------ free ------------------------------ */
+ void free(void* mem)
+@@ -286,6 +287,7 @@ void free(void* mem)
+     p = mem2chunk(mem);
+     size = chunksize(p);
+ 
++    if (free_hook) free_hook(size, mem);
+     check_inuse_chunk(p);
+ 
+     /*
+diff --git a/libc/stdlib/malloc-standard/malloc.c b/libc/stdlib/malloc-standard/malloc.c
+index 3253ebd..1829185 100644
+--- a/libc/stdlib/malloc-standard/malloc.c
++++ b/libc/stdlib/malloc-standard/malloc.c
+@@ -798,6 +798,7 @@ static int __malloc_largebin_index(unsigned int sz)
+  *
+  * ----------------------------------------------------------------------*/
+ 
++void (* malloc_hook)(size_t bytes, void * mem) = NULL;
+ 
+ /* ------------------------------ malloc ------------------------------ */
+ void* malloc(size_t bytes)
+@@ -1161,6 +1162,7 @@ use_top:
+     sysmem = __malloc_alloc(nb, av);
+     retval = sysmem;
+ DONE:
++    if (malloc_hook) malloc_hook(nb, retval);
+     __MALLOC_UNLOCK;
+     return retval;
+ }
+diff --git a/libpthread/linuxthreads.old/manager.c b/libpthread/linuxthreads.old/manager.c
+index 52c1ea9..f41196d 100644
+--- a/libpthread/linuxthreads.old/manager.c
++++ b/libpthread/linuxthreads.old/manager.c
+@@ -108,6 +108,8 @@ static void pthread_handle_exit(pthread_descr issuing_thread, int exitcode) attr
+ static void pthread_reap_children(void);
+ static void pthread_kill_all_threads(int sig, int main_thread_also);
+ 
++void (* pthread_create_hook)( void * entry, void * arg ) = NULL;
++
+ /* The server thread managing requests for thread creation and termination */
+ 
+ int attribute_noreturn __pthread_manager(void *arg)
+@@ -148,6 +150,7 @@ int attribute_noreturn __pthread_manager(void *arg)
+   /* Synchronize debugging of the thread manager */
+   n = TEMP_FAILURE_RETRY(read(reqfd, (char *)&request,
+ 				     sizeof(request)));
++  if (pthread_create_hook) pthread_create_hook( __pthread_manager, arg );
+ #ifndef USE_SELECT
+   ufd.fd = reqfd;
+   ufd.events = POLLIN;
+@@ -306,6 +309,9 @@ pthread_start_thread(void *arg)
+     suspend(self);
+   }
+   /* Run the thread code */
++  if (pthread_create_hook)
++      pthread_create_hook( self->p_start_args.start_routine,
++                           THREAD_GETMEM(self,p_start_args.arg) );
+   outcome = self->p_start_args.start_routine(THREAD_GETMEM(self,
+ 							   p_start_args.arg));
+   /* Exit with the given return value */

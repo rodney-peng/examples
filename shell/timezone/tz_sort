@@ -1,0 +1,146 @@
+#!/bin/bash
+
+: ${TZDIR=$PWD/tzdir/usr/share/zoneinfo}
+: ${ZDUMP=$PWD/tzdir/usr/bin/zdump}
+
+
+if [[ ! "$BASH_VERSION" > "4" ]]; then
+  echo 'Requires bash version 4 and later supporting associative array!'
+  exit
+fi
+
+if [ ! -x "$ZDUMP" ]; then
+  echo "Please set TZDIR to a valid timezone database!"
+  exit
+fi
+if [ ! -r "$TZDIR/Asia/Taipei" ]; then
+  echo "Please set TZDIR to a valid timezone database!"
+  exit
+fi
+if ! $ZDUMP Asia/Taipei > /dev/null; then
+  echo "Please set TZDIR to a valid timezone database!"
+  exit
+fi
+
+declare -A tz_db_index
+
+declare -a tz_db_zones
+declare -a tz_db_names
+
+declare -a tz_db_offset1
+declare -a tz_db_offset2
+declare -a tz_db_abbr1
+declare -a tz_db_abbr2
+
+zone_num=0
+ignored=0
+
+add_zone()
+{
+  local line="$1"
+
+  index=$(echo "$line" | awk -F '|' '{print $1}')
+  zone=$(echo "$line" | awk -F '|' '{print $2}')
+  country=$(echo "$line" | awk -F '|' '{print $3}')
+  region=$(echo "$line" | awk -F '|' '{$1=$2=$3="";print}' | sed -e 's/^[[:space:]]*//')
+
+  let 'zone_num++'
+  if [ -n "${tz_db_index[$zone]}" ]; then
+    let 'ignored++'
+  else
+    region=$(echo "$region" | sed -e 's/^Moscow[+-][0-9]\+\( (Moscow.*)\)\? - //')
+
+    if [ -n "$region" ]; then
+      name="$country: $region"
+    else
+      name="$country"
+    fi
+
+    tz_db_index[$zone]=$index
+
+    tz_db_zones[$index]=$zone
+    tz_db_names[$index]="$name"
+  fi
+}
+
+process_zone()
+{
+  local index=$1
+  local tzdb="$TZDIR"
+
+  zone=${tz_db_zones[$index]}
+  name="${tz_db_names[$index]}"
+
+  year=$(date +%Y)
+  offset1=$(TZ="$tzdb/$zone" date --date="$year-1-1" +%:z)
+  offset2=$(TZ="$tzdb/$zone" date --date="$year-9-1" +%:z)
+  abbr1=$(TZ="$tzdb/$zone" date --date="$year-1-1" +%Z)
+  abbr2=$(TZ="$tzdb/$zone" date --date="$year-9-1" +%Z)
+
+  if [ "$offset1" != "$offset2" ]; then
+    isdst=$($ZDUMP -V -c $year,$((year+1)) $zone | grep -m1 -o 'isdst=[0|1]' | tr -d 'isdst=')
+
+    if [ "$isdst" -eq "0" ]; then
+      tz_db_offset1[$index]=$offset1
+      tz_db_offset2[$index]=$offset2
+      tz_db_abbr1[$index]=$abbr1
+      tz_db_abbr2[$index]=$abbr2
+    else
+      tz_db_offset1[$index]=$offset2
+      tz_db_offset2[$index]=$offset1
+      tz_db_abbr1[$index]=$abbr2
+      tz_db_abbr2[$index]=$abbr1
+    fi
+  else
+    tz_db_offset1[$index]=$offset1
+    tz_db_offset2[$index]=$offset1
+    tz_db_abbr1[$index]=$abbr1
+    tz_db_abbr2[$index]=$abbr1
+  fi
+}
+
+list_zone()
+{
+  local index=$1
+
+  zone=${tz_db_zones[$index]}
+  name=${tz_db_names[$index]}
+
+  offset1=${tz_db_offset1[$index]}
+  offset2=${tz_db_offset2[$index]}
+  abbr1=${tz_db_abbr1[$index]}
+  abbr2=${tz_db_abbr2[$index]}
+
+  echo "$offset1|$name|$abbr1|$offset2|$abbr2|$zone|$index"
+}
+
+while true; do
+read line
+[ -z "$line" ] && break
+if echo $line | grep -q '^[[:space:]]*[0-9]\+|'; then
+  add_zone "$line"
+fi
+done
+
+[ ${#tz_db_index[@]} -eq 0 ] && exit
+
+for i in ${tz_db_index[@]}; do
+  process_zone $i
+done
+
+{
+for i in ${tz_db_index[@]}; do
+  if echo "${tz_db_offset1[$i]}" | grep -q ^-; then
+    list_zone $i
+  fi
+done
+} | sort -r
+
+{
+for i in ${tz_db_index[@]}; do
+  if echo "${tz_db_offset1[$i]}" | grep -q ^+; then
+    list_zone $i
+  fi
+done
+} | sort
+

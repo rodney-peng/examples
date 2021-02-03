@@ -1,0 +1,1 @@
+[ -n "$1" ] && xqilla -v xmldoc itg6.xml -v outtype header "$1" 

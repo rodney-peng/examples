@@ -1,0 +1,5 @@
+#!/bin/bash
+echo _0=$0
+echo SRC=$BASH_SOURCE
+echo num=$#
+echo arg=$@
