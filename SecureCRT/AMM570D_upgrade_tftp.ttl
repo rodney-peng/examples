@@ -1,0 +1,69 @@
+;Setting for LTE FW upgrade
+PC_ip = '192.168.1.10 '
+strcmp1 = 'Revision:11-19'
+strcmp2 = 'Revision:11-19'
+file1 = 'AMx570_11-19_update_perf_2018-09-04.bin '
+file2 = 'AMx570_11-19_update_perf_2018-09-04.bin '
+
+;===========================================
+;192.168.1.1/ssh
+;connect '/c=1 /baud=115200'
+
+wait 'Firmware Download Success'
+
+
+looptimes = 1
+do while looptimes < 101
+
+wait   'login: '
+sendln 'umadmin'
+wait   'Password: '
+sendln 'um_pass_123'
+pause 3
+sprintf2 command "%d" looptimes
+sendln 'looptimes = ' command
+waitln 'Model:AMM570D'
+recvln
+sprintf2 version "%s" inputstr
+
+wait 'Waiting for message from kernel'
+pause 3
+
+if looptimes%2 = 1 then
+    strcompare version strcmp1
+    if result=0 then
+    sendln 'autoupgrade3gfw t ' PC_ip '-f ' file1 '&'
+    else
+    goto error
+    endif
+else
+    strcompare version strcmp2
+    if result=0 then
+    sendln 'autoupgrade3gfw t ' PC_ip '-f ' file2 '&'
+	else
+    goto error
+    endif
+endif
+
+;wait 'adp_start_amt_module_upgrade()'
+wait 'Firmware Download Success'
+sprintf2 command "%d" looptimes
+sendln 'looptimes = ' command
+wait 'The system is going down NOW !!'
+
+looptimes = looptimes + 1
+loop
+sprintf2 success "LTE FW upgrade success(%d)" looptimes-1
+pause 1
+messagebox success 'Tera Term'
+end
+
+:error
+sprintf2 fail "LTE FW upgrade fail(%d), version still is %s" looptimes version
+pause 1
+messagebox fail 'Tera Term'
+end
+
+
+
+

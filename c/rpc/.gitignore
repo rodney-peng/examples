@@ -1,0 +1,6 @@
+test.h
+test_xdr.c
+test_clnt.c
+test_svc.c
+clnt
+svc
