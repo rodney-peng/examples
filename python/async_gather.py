@@ -1,14 +1,18 @@
 import asyncio
 from time import sleep
 
-async def runCoro(coro, wait=True):
-    task = asyncio.create_task(coro)
-    return await task if wait else task
+startAsync = lambda coro: asyncio.create_task(coro)
 
-async def runFunc(func, *args, wait=True, **kwargs):
-    loop = asyncio.get_running_loop()
-    future = loop.run_in_executor(None, func, *args, **kwargs)
-    return await future if wait else future
+async def waitAsync(coro):
+    task = startAsync(coro)
+    return await task
+
+startSync = lambda func, *args, **kwargs: asyncio.get_running_loop().run_in_executor(None, func, *args, **kwargs)
+
+async def waitSync(func, *args, **kwargs):
+    future = startSync(func, *args, **kwargs)
+    return await future
+
 
 # call asyncio.gather() start task and return _GatheringFuture
 # but call gather() below returns coroutine object
@@ -56,7 +60,7 @@ async def task(name, number):
     print(f'{asg=}')
     result = await asg
     print(f'task {name} {number} done! {result}')
-    return asg # result
+    return result
 
 async def async_sleep(name, n):
     print(f'{name} go to sleep', n)
@@ -109,18 +113,18 @@ async def main():
         task("C", 4),
     )
     print(f'{coro=}')
-    cog = await runCoro(coro, wait=False)
+    cog = startAsync(coro)
 
-    r = await runCoro(async_sleep("Async-1", 5), wait=False)
+    r = startAsync(async_sleep("Async-1", 5))
     print(r)
-    r = await runFunc(goto_sleep, 'Sync-1', 3, wait=False)
+    r = startSync(goto_sleep, 'Sync-1', 3)
     print(r)
     await asyncio.sleep(2)
 
     print(f'{cog=}')
     r = await cog
     print(f'{await cog=}')
-    compare_objects(coroutine=coro, task=cog, future=asyncio.get_running_loop().create_future())
+#    compare_objects(coroutine=coro, task=cog, future=asyncio.get_running_loop().create_future())
 
 asyncio.run(main())
 
